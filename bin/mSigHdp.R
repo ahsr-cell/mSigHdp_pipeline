@@ -9,7 +9,7 @@ message(paste("Welcome to", application, "For any questions, please consort the 
 ### Load in required packages 
 suppressPackageStartupMessages(require(mSigHdp))
 suppressPackageStartupMessages(require(hdpx))
-suppressPackageStartupMessages(require(dplyr))
+suppressPackageStartupMessages(require(tidyverse))
 suppressPackageStartupMessages(require(argparse))
 
 options(stringsAsFactors = F )
@@ -216,13 +216,13 @@ if (!exists("sample_matrix")) { #Single sample type, therefore, multi.types opti
 
 mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
                                            header = TRUE)
-  mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
+mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
   
-  mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
+mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
   
-  colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
+colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
   
-  write.table(mSigHdp_Extracted_Signatures, file = paste0(u.work.dir,"/mSigHdp_deNovoSignatures.txt"), sep = "\t",
+write.table(mSigHdp_Extracted_Signatures, file = paste0(u.work.dir,"/mSigHdp_deNovoSignatures.txt"), sep = "\t",
                 row.names = TRUE, col.names = TRUE)
   
-  message(paste0("mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))
+message(paste0("mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))
