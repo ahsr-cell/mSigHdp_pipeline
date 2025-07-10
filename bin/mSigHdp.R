@@ -39,8 +39,8 @@ if(!exists("mutation_matrix_path")) {
   stop(sprintf("Mutation matrix not provided. Please specify by providing path at end of command; Use -h for further information."))
 }
 
-if (!is.null(args$sample_path)) {
-  sample_path <- args$sample_path
+if (!is.null(args$sample_matrix)) {
+  sample_matrix <- args$sample_matrix
 }
 
 if (!is.null(args$mutational_context)) {
@@ -96,9 +96,9 @@ rownames(mutation_types) <- NULL
 mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
 
 ##Sample key  
-if (exists("sample_path")) {
+if (exists("sample_matrix")) {
   message(paste("Sample key provided. Incorporating into mutational matrix."))
-  sample_key <- read.csv(file = sample_path)
+  sample_key <- read.csv(file = sample_matrix)
   samples <- colnames(mutation_types)
   sample_key_vector <- as.vector(sample_key$sample_type)
   sample_key_vector_colnames <- paste0(sample_key_vector,"::",samples)
@@ -121,7 +121,7 @@ message(paste0("Creating output subdirectory for run"))
     u.work.dir <- file.path(main_dir,sub_dir)
   }
 
-if (exists("sample_path")) {
+if (exists("sample_matrix")) {
   if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.type == 'test' | u.analysis.type == 'Test') {
     message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples with 5 iterations between samples."))
     results <- mSigHdp::RunHdpxParallel(
@@ -168,7 +168,7 @@ if (exists("sample_path")) {
   }
 }
 
-if (!exists("sample_path")) { #Single sample type, therefore, multi.types option turned to FALSE
+if (!exists("sample_matrix")) { #Single sample type, therefore, multi.types option turned to FALSE
   if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.type == 'test' | u.analysis.type == 'Test'){
     message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples with 5 iterations between samples."))
     results <- mSigHdp::RunHdpxParallel(
