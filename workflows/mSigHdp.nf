@@ -13,7 +13,7 @@ process mSigHdp {
     path mutational_matrix
 
     output:
-    path "deNovo_signatures/mSigHdp_deNovoSignatures.txt"
+    path "deNovo_signatures"
 
     script:
     """

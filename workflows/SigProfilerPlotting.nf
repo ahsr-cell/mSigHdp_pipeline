@@ -3,7 +3,7 @@ process SigProfilerPlotting {
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
     input: 
-    path deNovo_signatures
+    path deNovoSignatures_matrix
     val mutational_context
 
     output:
@@ -11,6 +11,6 @@ process SigProfilerPlotting {
 
     script:
     """
-    python3 SigProfilerPlotting.py --mutational_context "${params.mutational_context}" --deNovoSignatures_matrix "${mSigHdp.out}"
+    python3 SigProfilerPlotting.py --mutational_context "${mutational_context}" --deNovoSignatures_matrix "${deNovoSignatures_matrix}"
     """
 }

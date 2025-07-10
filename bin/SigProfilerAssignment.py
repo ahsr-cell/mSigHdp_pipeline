@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 from SigProfilerAssignment import Analyzer as Analyze
-import argparse, sys
+import argparse
+import sys
 
 def get_arguments():
     parser = argparse.ArgumentParser(description='')

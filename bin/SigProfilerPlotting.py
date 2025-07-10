@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import sigProfilerPlotting as sigPlt
-import argparse, sys
+import argparse
+import sys
 
 def get_arguments():
     parser = argparse.ArgumentParser(description = 'Get user defined SigProfilerPlotting options')
