@@ -111,9 +111,9 @@ if (exists("sample_path")) {
 ### User specification of options
 message(paste0("Successfully imported datasets and completed data wrangling. Proceeding with mSigHdp ", u.analysis.type, " run.")) 
 
-message(paste0("Creating output file subdirectory called mSigHdp_run"))  
+message(paste0("Creating output subdirectory for run"))  
   main_dir <- getwd()
-  sub_dir <- paste0("mSigHdp")
+  sub_dir <- paste0("deNovo_signatures")
   if (!file.exists(sub_dir)){
     dir.create(file.path(main_dir, sub_dir))
     u.work.dir <- file.path(main_dir,sub_dir)
@@ -143,19 +143,6 @@ if (exists("sample_path")) {
       checkpoint = TRUE,   
       verbose = TRUE
     )
-    mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
-                                             header = TRUE)
-    mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
-    
-    mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
-    
-    colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
-    
-    write.table(mSigHdp_Extracted_Signatures, file = "mSigHdp_deNovoSignatures.txt", sep = "\t",
-                  row.names = TRUE, col.names = TRUE)
-    
-    message(paste0("Analysis run for mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir," . Thank you for using mSigHdp."))
-    
   }
  if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
   message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples. Collecting ", u.post.space, " iterations between samples."))
@@ -176,20 +163,9 @@ if (exists("sample_path")) {
     gamma.beta           = 20, 
     high.confidence.prop = 0.9,
     checkpoint           = TRUE,
-    verbose              = FALSE)
-  
-  mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
-                                           header = TRUE)
-  mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
-  
-  mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
-  
-  colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
-  
-  write.table(mSigHdp_Extracted_Signatures, file = "mSigHdp_deNovoSignatures.txt", sep = "\t",
-                row.names = TRUE, col.names = TRUE)
-  
-  message(paste0("Analysis run for mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir," . Thank you for using mSigHdp."))
+    verbose              = FALSE
+    )
+  }
 }
 
 if (!exists("sample_path")) { #Single sample type, therefore, multi.types option turned to FALSE
@@ -214,20 +190,6 @@ if (!exists("sample_path")) { #Single sample type, therefore, multi.types option
       checkpoint = TRUE,   
       verbose = TRUE
     )
-    
-    mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
-                                             header = TRUE)
-    mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
-    
-    mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
-    
-    colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
-    
-    write.table(mSigHdp_Extracted_Signatures, file = "mSigHdp_deNovoSignatures.txt", sep = "\t",
-                  row.names = TRUE, col.names = TRUE)
-    
-    message(paste0("Analysis run for mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir," . Thank you for using mSigHdp."))
-    
   } else if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
     message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples. Collecting ", u.post.space, " iterations between samples."))
     results <- mSigHdp::RunHdpxParallel(
@@ -247,19 +209,20 @@ if (!exists("sample_path")) { #Single sample type, therefore, multi.types option
       gamma.beta           = 20, 
       high.confidence.prop = 0.9,
       checkpoint           = TRUE,
-      verbose              = FALSE)
-    
-    mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
-                                             header = TRUE)
-    mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
-    
-    mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
-    
-    colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
-
-    write.table(mSigHdp_Extracted_Signatures, file = "mSigHdp_deNovoSignatures.txt", sep = "\t",
-                  row.names = TRUE, col.names = TRUE)
-    
-    message(paste0("Analysis run for mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir," . Thank you for using mSigHdp."))
-  }
+      verbose              = FALSE
+      )
+    }
 }
+
+mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
+                                           header = TRUE)
+  mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
+  
+  mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
+  
+  colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
+  
+  write.table(mSigHdp_Extracted_Signatures, file = paste0(u.work.dir,"/mSigHdp_deNovoSignatures.txt"), sep = "\t",
+                row.names = TRUE, col.names = TRUE)
+  
+  message(paste0("mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))
