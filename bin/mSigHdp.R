@@ -20,7 +20,7 @@ parser = ArgumentParser(prog = 'mSigHdp', description='mSigHdp pipeline')
 #Command line arguments
 parser$add_argument("matrix_path", nargs = 1, help = "Specify path to input mutational matrix.") 
 
-parser$add_argument("-s","--sample_matrix", type = 'character', help = "If available, specify path to sample key.") 
+parser$add_argument("-s","--sample_matrix", type = 'character', help = "If available, specify path to sample key.", required=FALSE) 
 
 parser$add_argument("-a", "--analysis_type", type = "character", default = "Testing", help = "Specify type of analysis run. Options are [testing] or [analysis].", required=TRUE)
 
