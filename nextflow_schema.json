@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/mSigHDP pipeline//nextflow_schema.json",
+  "title": "mSigHDP pipeline pipeline parameters",
+  "description": "Signature extraction via mSigHdp pipeline. Contact Andrew at ar39@sanger.ac.uk for any queries.",
+  "type": "object",
+  "$defs": {
+    "input_output_options": {
+      "title": "Input/output options",
+      "type": "object",
+      "fa_icon": "fas fa-terminal",
+      "description": "Define where the pipeline should find input data and save output data.",
+      "required": ["outdir"],
+      "properties": {
+        "outdir": {
+          "type": "string",
+          "format": "directory-path",
+          "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
+          "fa_icon": "fas fa-folder-open"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/$defs/input_output_options"
+    }
+  ],
+  "properties": {
+    "image_cachedir": {
+      "type": "string",
+      "default": "/Users/ar39/Documents/mSigHDP_HDP/7_Pipelines/0_mSigHdp/mSigHdp_pipeline/images"
+    },
+    "mutational_matrix": {
+      "type": "string"
+    },
+    "mutational_context": {
+      "type": "string"
+    },
+    "plotting": {
+      "type": "boolean",
+      "default": true
+    },
+    "decompose": {
+      "type": "boolean",
+      "default": true
+    },
+    "analysis_type": {
+      "type": "string",
+      "default": "analysis"
+    },
+    "sample_matrix": {
+      "type": "string"
+    },
+    "burnin_iterations": {
+      "type": "integer",
+      "default": 5000
+    },
+    "burnin_multiplier": {
+      "type": "integer",
+      "default": 10
+    },
+    "posterior": {
+      "type": "integer",
+      "default": 250
+    },
+    "posterior_iterations": {
+      "type": "integer",
+      "default": 100
+    }
+  }
+}
