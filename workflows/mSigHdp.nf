@@ -1,6 +1,6 @@
 process mSigHdp {
 
-    publishDir "${params.outdir}/deNovo_signatures", mode: "copy", overwrite: true
+    publishDir "${params.outdir}", mode: "copy", overwrite: true
 
     input:
     path sample_matrix
@@ -13,10 +13,12 @@ process mSigHdp {
     path mutational_matrix
 
     output:
-    path "deNovo_signatures/mSigHdp_deNovoSignatures.txt"
+    path "deNovo_signatures", emit: deNovo_signaturesdir
+    path "deNovo_signatures/mSigHdp_deNovoSignatures.txt", emit: deNovo_extractedsigs
+    path "deNovo_signatures/low.confidence.signatures.csv", emit: deNovo_lowconfsigs, optional: true
 
     script:
     """
-    Rscript --vanilla mSigHdp.R -s "${params.sample_matrix}" -c "${params.mutational_context}" -a "${params.analysis_type}" -b "${params.burnin_iterations}" -x "${params.burnin_multiplier}" -o "${params.posterior}" -i "${params.posterior_iterations}" "${params.mutational_matrix}"
+    Rscript --vanilla ${projectDir}/bin/mSigHdp.R -s ${sample_matrix} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
     """
 }

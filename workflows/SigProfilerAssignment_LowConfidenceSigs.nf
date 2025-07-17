@@ -1,4 +1,4 @@
-process SigProfilerAssignment {
+process SigProfilerAssignment_LowConfidenceSigs {
 
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
@@ -11,6 +11,6 @@ process SigProfilerAssignment {
 
     script:
     """
-    SigProfilerAssignment.py --mutational_matrix "${mutational_matrix}" --deNovoSignatures_matrix "${deNovoSignatures_matrix}"
+    SigProfilerAssignment.py --mutational_matrix ${mutational_matrix} --deNovoSignatures_matrix ${deNovoSignatures_matrix}
     """
 }

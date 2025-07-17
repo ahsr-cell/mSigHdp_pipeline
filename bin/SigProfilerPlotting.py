@@ -37,7 +37,7 @@ def sigPlt_plotting(mutational_context, deNovoSignatures_matrix):
       u_plot_type = '83'
   sigPlt.plotID(matrix_path, output_path, project, u_plot_type, percentage=False)
   
-  print('SigProfilerPlotting completed. Output plots can be found in output_path')
+  print('SigProfilerPlotting completed. Output plots can be found in /Signature_Spectra')
   
 def main(args):
    sigPlt_plotting(args.mutational_context, args.deNovoSignatures_matrix)

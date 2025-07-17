@@ -12,12 +12,11 @@ def get_arguments():
                         help="Specify path to mSigHdp de novo signature matrix")
     return parser
 
-def sigPA_decompose(mutational_matrix,deNovoSignatures_matrix):
-    signatures = deNovoSignatures_matrix
-    samples = mutational_matrix
+def sigPA_decompose(mutational_matrix, deNovoSignatures_matrix):
     output = "SigProfilerDecomposition" 
-    Analyze.decompose_fit(samples, output, signatures=signatures, genome_build="GRCh38",
+    Analyze.decompose_fit(mutational_matrix, output, deNovoSignatures_matrix, genome_build="GRCh38",
                            verbose=False, make_plots = True)
+    print('SigProfilerAssignment completed. Output plots can be found in /SigProfilerDecomposition')
 
 def main(args):
    sigPA_decompose(args.mutational_matrix, args.deNovoSignatures_matrix)
