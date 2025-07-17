@@ -11,6 +11,6 @@ process SigProfilerPlotting_ExtractedSigs {
 
     script:
     """
-    python3 SigProfilerPlotting.py --mutational_context ${mutational_context} --deNovoSignatures_matrix ${deNovoSignatures_matrix}
+    SigProfilerPlotting.py --mutational_context ${mutational_context} --deNovoSignatures_matrix ${deNovoSignatures_matrix}
     """
 }
