@@ -3,10 +3,10 @@
 nextflow.enable.dsl=2
 
 include { mSigHdp } from './workflows/mSigHdp.nf'
-include { SigProfilerPlotting_ExtractedSigs } from './workflows/SigProfilerPlotting_ExtractedSigs.nf'
-include { SigProfilerPlotting_LowConfidenceSigs } from './workflows/SigProfilerPlotting_LowConfidenceSigs.nf'
-include { SigProfilerAssignment_ExtractedSigs } from './workflows/SigProfilerAssignment_ExtractedSigs.nf'
-include { SigProfilerAssignment_LowConfidenceSigs } from './workflows/SigProfilerAssignment_LowConfidenceSigs.nf'
+include { SigProfilerPlotting as SigPlt_Extracted } from './workflows/SigProfilerPlotting.nf'
+include { SigProfilerPlotting as SigPlt_LowConfidence } from './workflows/SigProfilerPlotting.nf'
+include { SigProfilerAssignment as SigPA_Extracted } from './workflows/SigProfilerAssignment.nf'
+include { SigProfilerAssignment as SigPA_LowConfidence } from './workflows/SigProfilerAssignment.nf'
 
 //
 // WORKFLOW: Run main analysis pipeline depending on user inputs
@@ -32,21 +32,21 @@ workflow {
                 params.mutational_matrix
             )
 
-            SigProfilerPlotting_ExtractedSigs(
+            SigPlt_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
                 params.mutational_context
             )
 
-            SigProfilerAssignment_ExtractedSigs(
+            SigPA_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
                 params.mutational_matrix
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
-                SigProfilerPlotting_LowConfidenceSigs(
+                SigPlt_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
                     params.mutational_context
                 )
-                SigProfilerAssignment_LowConfidenceSigs(
+                SigPA_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
                     params.mutational_matrix
                 )
@@ -63,12 +63,12 @@ workflow {
                 params.posterior_iterations,
                 params.mutational_matrix
             )
-            SigProfilerPlotting_ExtractedSigs(
+            SigPlt_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
                 params.mutational_context
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
-                SigProfilerPlotting_LowConfidenceSigs(
+                SigPlt_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
                     params.mutational_context
                 )
@@ -87,12 +87,12 @@ workflow {
                 params.posterior_iterations,
                 params.mutational_matrix
             )
-            SigProfilerAssignment_ExtractedSigs(
+            SigPA_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
                 params.mutational_matrix
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
-                SigProfilerAssignment_LowConfidenceSigs(
+                SigPA_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
                     params.mutational_matrix
                 )

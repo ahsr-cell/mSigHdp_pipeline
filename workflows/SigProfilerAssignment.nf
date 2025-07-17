@@ -1,4 +1,4 @@
-process SigProfilerAssignment_LowConfidenceSigs {
+process SigProfilerAssignment {
 
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 

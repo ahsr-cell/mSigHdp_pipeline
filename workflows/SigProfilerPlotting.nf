@@ -1,4 +1,4 @@
-process SigProfilerPlotting_ExtractedSigs {
+process SigProfilerPlotting {
 
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
