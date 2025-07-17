@@ -33,10 +33,10 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Install python packages with pip
 RUN pip install \
-	SigProfilerAssignment==0.2.3
+	SigProfilerPlotting==1.4.1
 
 #Set working directory in the container
 WORKDIR /usr/src/app
 
 #Test package installation and access 
-RUN python3 -c 'import SigProfilerAssignment; print("SigProfilerAssignment package is ready!")'
+RUN python3 -c 'import sigProfilerPlotting; print("SigProfilerPlotting package is ready!")'
