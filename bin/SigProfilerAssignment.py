@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import SigProfilerAssignment
+import SigProfilerAssignment.Analzyer
 import argparse
 import sys
 
