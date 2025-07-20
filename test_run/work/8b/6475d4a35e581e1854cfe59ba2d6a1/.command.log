@@ -1,0 +1,91 @@
+Welcome to mSigHdp mutational signature extraction pipeline. For any questions, please consort the original paper (Liu et al. 2023, https://doi.org/10.1093/nargab/lqad005), GitHub/manual: (https://github.com/steverozen/mSigHdp/blob/v2.1.2-branch/mSigHdp_2.1.2.pdf), or the Stratton group. 
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@node-13-10>
+Subject: Job 154432: <nf-mSigHdp> in cluster <farm22> Exited
+
+Job <nf-mSigHdp> was submitted from host <farm22-head1> by user <ar39> in cluster <farm22> at Sun Jul 20 08:16:57 2025
+Job was executed on host(s) <node-13-10>, in queue <small>, as user <ar39> in cluster <farm22> at Sun Jul 20 08:16:57 2025
+</nfs/users/nfs_a/ar39> was used as the home directory.
+</lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1> was used as the working directory.
+Started at Sun Jul 20 08:16:57 2025
+Terminated at Sun Jul 20 08:17:06 2025
+Results reported at Sun Jul 20 08:17:06 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -o /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1/.command.log
+#BSUB -q small
+#BSUB -J nf-mSigHdp
+NXF_CHDIR=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1
+### ---
+### name: 'mSigHdp'
+### container: '/lustre/scratch125/casm/teams/team267/projects/DockerImages/msighdp_amd64_0.0.2.sif'
+### outputs:
+### - 'deNovo_signatures'
+### - 'deNovo_signatures/mSigHdp_deNovoSignatures.txt'
+### - 'deNovo_signatures/low.confidence.signatures.csv'
+### ...
+set -e
+set -u
+NXF_DEBUG=${NXF_DEBUG:=0}; [[ $NXF_DEBUG > 1 ]] && set -x
+NXF_ENTRY=${1:-nxf_main}
+
+nxf_container_env() {
+cat << EOF
+export PATH="\$PATH:/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin"
+EOF
+}
+
+nxf_sleep() {
+  sleep $1 2>/dev/null || sleep 1;
+}
+
+nxf_date() {
+    local ts=$(date +%s%3N);
+    if [[ ${#ts} == 10 ]]; then echo ${ts}000
+    elif [[ $ts == *%3N ]]; then echo ${ts/\%3N/000}
+    elif [[ $ts == *3N ]]; then echo ${ts/3N/000}
+    elif [[ ${#ts} == 13 ]]; then echo $ts
+    else echo "Unexpected timestamp value: $ts"; exit 1
+    fi
+}
+
+nxf_env() {
+    echo '============= task environment ============='
+    env | sort | sed "s/\(.*\)AWS\(.*\)=\(.\{6\}\).*/\1AWS\2=\3xxxxxxxxxxxxx/"
+    echo '============= task output =================='
+}
+
+nxf_kill() {
+    declare -a children
+    while read P PP;do
+        children[$PP]+=" $P"
+    done < <(ps -e -o pid= -o ppid=)
+
+
+(... more ...)
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :                                   2.00 sec.
+    Max Memory :                                 225 MB
+    Average Memory :                             59.50 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              12
+    Max Threads :                                27
+    Run time :                                   12 sec.
+    Turnaround time :                            9 sec.
+
+The output (if any) is above this job summary.
+
