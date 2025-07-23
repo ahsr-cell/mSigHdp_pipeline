@@ -1,6 +1,8 @@
 #!/bin/bash
 #BSUB -o /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1/.command.log
 #BSUB -q small
+#BSUB -M 8192
+#BSUB -R "select[mem>=8192] rusage[mem=8192]"
 #BSUB -J nf-mSigHdp
 NXF_CHDIR=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1
 ### ---

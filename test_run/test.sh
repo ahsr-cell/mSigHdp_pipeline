@@ -1,13 +1,13 @@
-#! /usr/bin/env/bash
+#! /usr/bin/env bash
 
 #BSUB -J mSigHdp_pipeline_test1
 #BSUB -o %J.out
 #BSUB -e %J.err
 #BSUB -u ar39@sanger.ac.uk
-#BSUB -q basement
+#BSUB -q normal
 #BSUB -n 20
-#BSUB -M200000
-#BSUB -R "select[mem>200000] rusage[mem=200000]"
+#BSUB -M20000
+#BSUB -R "select[mem>20000] rusage[mem=20000]"
 
 module load cellgen/nextflow/24.10.2
 module load ISG/singularity/3.11.4

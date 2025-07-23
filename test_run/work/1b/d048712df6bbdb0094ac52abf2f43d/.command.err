@@ -8,24 +8,12 @@ Creating output subdirectory for run
 Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collecting 10 posterior samples. Collecting 10 iterations between samples.
 277 samples in United Kingdom
 1 samples in Malawi
-277 samples in United Kingdom
-1 samples in Malawi
-26 samples in Iran
-23 samples in Brazil
-277 samples in United Kingdom
-1 samples in Malawi
 26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
-277 samples in United Kingdom
-1 samples in Malawi
-277 samples in United Kingdom
-1 samples in Malawi
-26 samples in Iran
-23 samples in Brazil
-5 samples in Kenya
+107 samples in China
 277 samples in United Kingdom
 1 samples in Malawi
 26 samples in Iran
@@ -42,23 +30,35 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
 26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
-5 samples in Kenya
-43 samples in Canada
-4 samples in Colombia
-107 samples in China
-107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
 26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
+26 samples in Iran
+23 samples in Brazil
+5 samples in Kenya
+43 samples in Canada
+4 samples in Colombia
+107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
+26 samples in Iran
+23 samples in Brazil
+5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
