@@ -22,7 +22,7 @@ workflow {
     if (params.plotting == true){
         if (params.decompose == true){
             mSigHdp(
-                params.sample_matrix, 
+                params.hierarchy_matrix, 
                 params.mutational_context, 
                 params.analysis_type,
                 params.burnin_iterations,
@@ -54,7 +54,7 @@ workflow {
         }
         else {
             mSigHdp(
-                params.sample_matrix, 
+                params.hierarchy_matrix, 
                 params.mutational_context, 
                 params.analysis_type,
                 params.burnin_iterations,
@@ -78,7 +78,7 @@ workflow {
     else {
         if (params.decompose == true) {
             mSigHdp(
-                params.sample_matrix, 
+                params.hierarchy_matrix, 
                 params.mutational_context, 
                 params.analysis_type,
                 params.burnin_iterations,
@@ -99,7 +99,7 @@ workflow {
             }
         }
         mSigHdp(
-                params.sample_matrix, 
+                params.hierarchy_matrix, 
                 params.mutational_context, 
                 params.analysis_type,
                 params.burnin_iterations,

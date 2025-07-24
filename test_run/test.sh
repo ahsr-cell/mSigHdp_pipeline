@@ -6,8 +6,8 @@
 #BSUB -u ar39@sanger.ac.uk
 #BSUB -q normal
 #BSUB -n 20
-#BSUB -M20000
-#BSUB -R "select[mem>20000] rusage[mem=20000]"
+#BSUB -M100000
+#BSUB -R "select[mem>100000] rusage[mem=100000]"
 
 module load cellgen/nextflow/24.10.2
 module load ISG/singularity/3.11.4

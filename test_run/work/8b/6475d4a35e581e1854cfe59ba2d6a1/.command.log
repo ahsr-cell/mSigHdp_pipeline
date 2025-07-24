@@ -9,21 +9,7 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 277 samples in United Kingdom
 1 samples in Malawi
 26 samples in Iran
-277 samples in United Kingdom
-1 samples in Malawi
-26 samples in Iran
 23 samples in Brazil
-23 samples in Brazil
-5 samples in Kenya
-43 samples in Canada
-4 samples in Colombia
-107 samples in China
-5 samples in Kenya
-43 samples in Canada
-4 samples in Colombia
-107 samples in China
-277 samples in United Kingdom
-1 samples in Malawi
 277 samples in United Kingdom
 1 samples in Malawi
 26 samples in Iran
@@ -32,8 +18,14 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
 26 samples in Iran
 23 samples in Brazil
+5 samples in Kenya
+43 samples in Canada
+4 samples in Colombia
+107 samples in China
 5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
@@ -72,15 +64,15 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 107 samples in China
 277 samples in United Kingdom
 1 samples in Malawi
-277 samples in United Kingdom
-1 samples in Malawi
-26 samples in Iran
 26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
+26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
@@ -152,15 +144,23 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 107 samples in China
 277 samples in United Kingdom
 1 samples in Malawi
-277 samples in United Kingdom
-1 samples in Malawi
-26 samples in Iran
 26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
 4 samples in Colombia
 107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
+26 samples in Iran
+23 samples in Brazil
+5 samples in Kenya
+43 samples in Canada
+4 samples in Colombia
+107 samples in China
+277 samples in United Kingdom
+1 samples in Malawi
+26 samples in Iran
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
@@ -168,16 +168,16 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 107 samples in China
 
 ------------------------------------------------------------
-Sender: LSF System <lsfadmin@node-12-3-3>
-Subject: Job 458364: <nf-mSigHdp> in cluster <farm22> Exited
+Sender: LSF System <lsfadmin@node-14-13>
+Subject: Job 477961: <nf-mSigHdp> in cluster <farm22> Exited
 
-Job <nf-mSigHdp> was submitted from host <node-12-4-3> by user <ar39> in cluster <farm22> at Wed Jul 23 04:24:57 2025
-Job was executed on host(s) <node-12-3-3>, in queue <small>, as user <ar39> in cluster <farm22> at Wed Jul 23 04:24:57 2025
+Job <nf-mSigHdp> was submitted from host <node-13-15> by user <ar39> in cluster <farm22> at Wed Jul 23 06:35:50 2025
+Job was executed on host(s) <node-14-13>, in queue <small>, as user <ar39> in cluster <farm22> at Wed Jul 23 06:35:51 2025
 </nfs/users/nfs_a/ar39> was used as the home directory.
 </lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1> was used as the working directory.
-Started at Wed Jul 23 04:24:57 2025
-Terminated at Wed Jul 23 04:26:46 2025
-Results reported at Wed Jul 23 04:26:46 2025
+Started at Wed Jul 23 06:35:51 2025
+Terminated at Wed Jul 23 07:05:54 2025
+Results reported at Wed Jul 23 07:05:54 2025
 
 Your job looked like:
 
@@ -186,8 +186,8 @@ Your job looked like:
 #!/bin/bash
 #BSUB -o /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1/.command.log
 #BSUB -q small
-#BSUB -M 8192
-#BSUB -R "select[mem>=8192] rusage[mem=8192]"
+#BSUB -M 102400
+#BSUB -R "select[mem>=102400] rusage[mem=102400]"
 #BSUB -J nf-mSigHdp
 NXF_CHDIR=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8b/6475d4a35e581e1854cfe59ba2d6a1
 ### ---
@@ -237,21 +237,21 @@ nxf_kill() {
 (... more ...)
 ------------------------------------------------------------
 
-TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
-Exited with exit code 130.
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
 
 Resource usage summary:
 
-    CPU time :                                   100.00 sec.
-    Max Memory :                                 8612 MB
-    Average Memory :                             4503.50 MB
-    Total Requested Memory :                     8192.00 MB
-    Delta Memory :                               -420.00 MB
+    CPU time :                                   1801.00 sec.
+    Max Memory :                                 8669 MB
+    Average Memory :                             8310.17 MB
+    Total Requested Memory :                     102400.00 MB
+    Delta Memory :                               93731.00 MB
     Max Swap :                                   -
     Max Processes :                              32
     Max Threads :                                47
-    Run time :                                   109 sec.
-    Turnaround time :                            109 sec.
+    Run time :                                   1802 sec.
+    Turnaround time :                            1804 sec.
 
 The output (if any) is above this job summary.
 

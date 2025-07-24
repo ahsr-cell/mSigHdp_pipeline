@@ -12,8 +12,6 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
-4 samples in Colombia
-107 samples in China
 277 samples in United Kingdom
 1 samples in Malawi
 26 samples in Iran
@@ -60,6 +58,8 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 23 samples in Brazil
 5 samples in Kenya
 43 samples in Canada
+4 samples in Colombia
+107 samples in China
 4 samples in Colombia
 107 samples in China
 277 samples in United Kingdom
@@ -168,16 +168,16 @@ Executing mSigHdp with 100 burn-in iterations, using a 10x multiplier. Collectin
 107 samples in China
 
 ------------------------------------------------------------
-Sender: LSF System <lsfadmin@node-13-16>
-Subject: Job 458794: <nf-mSigHdp> in cluster <farm22> Exited
+Sender: LSF System <lsfadmin@node-13-24>
+Subject: Job 483798: <nf-mSigHdp> in cluster <farm22> Exited
 
-Job <nf-mSigHdp> was submitted from host <node-12-4-3> by user <ar39> in cluster <farm22> at Wed Jul 23 04:29:46 2025
-Job was executed on host(s) <node-13-16>, in queue <small>, as user <ar39> in cluster <farm22> at Wed Jul 23 04:29:47 2025
+Job <nf-mSigHdp> was submitted from host <node-13-15> by user <ar39> in cluster <farm22> at Wed Jul 23 07:36:05 2025
+Job was executed on host(s) <node-13-24>, in queue <small>, as user <ar39> in cluster <farm22> at Wed Jul 23 07:36:05 2025
 </nfs/users/nfs_a/ar39> was used as the home directory.
 </lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/1b/d048712df6bbdb0094ac52abf2f43d> was used as the working directory.
-Started at Wed Jul 23 04:29:47 2025
-Terminated at Wed Jul 23 04:32:18 2025
-Results reported at Wed Jul 23 04:32:18 2025
+Started at Wed Jul 23 07:36:05 2025
+Terminated at Wed Jul 23 08:06:14 2025
+Results reported at Wed Jul 23 08:06:14 2025
 
 Your job looked like:
 
@@ -186,8 +186,8 @@ Your job looked like:
 #!/bin/bash
 #BSUB -o /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/1b/d048712df6bbdb0094ac52abf2f43d/.command.log
 #BSUB -q small
-#BSUB -M 8192
-#BSUB -R "select[mem>=8192] rusage[mem=8192]"
+#BSUB -M 102400
+#BSUB -R "select[mem>=102400] rusage[mem=102400]"
 #BSUB -J nf-mSigHdp
 NXF_CHDIR=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/1b/d048712df6bbdb0094ac52abf2f43d
 ### ---
@@ -237,21 +237,21 @@ nxf_kill() {
 (... more ...)
 ------------------------------------------------------------
 
-TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
-Exited with exit code 130.
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
 
 Resource usage summary:
 
-    CPU time :                                   138.00 sec.
+    CPU time :                                   1799.00 sec.
     Max Memory :                                 8671 MB
-    Average Memory :                             4439.57 MB
-    Total Requested Memory :                     8192.00 MB
-    Delta Memory :                               -479.00 MB
+    Average Memory :                             8344.42 MB
+    Total Requested Memory :                     102400.00 MB
+    Delta Memory :                               93729.00 MB
     Max Swap :                                   -
     Max Processes :                              32
     Max Threads :                                47
-    Run time :                                   151 sec.
-    Turnaround time :                            152 sec.
+    Run time :                                   1809 sec.
+    Turnaround time :                            1809 sec.
 
 The output (if any) is above this job summary.
 

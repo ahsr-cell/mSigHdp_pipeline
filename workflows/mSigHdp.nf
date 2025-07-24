@@ -3,7 +3,7 @@ process mSigHdp {
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
     input:
-    path sample_matrix
+    path hierarchy_matrix
     val mutational_context
     val analysis_type
     val burnin_iterations 
@@ -19,6 +19,6 @@ process mSigHdp {
 
     script:
     """
-    Rscript --vanilla ${projectDir}/bin/mSigHdp.R -s ${sample_matrix} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
+    Rscript --vanilla ${projectDir}/bin/mSigHdp.R -s ${hierarchy_matrix} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
     """
 }

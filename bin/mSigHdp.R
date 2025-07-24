@@ -20,14 +20,14 @@ parser = ArgumentParser(prog = 'mSigHdp', description='mSigHdp pipeline')
 #Command line arguments
 parser$add_argument("matrix_path", nargs = 1, help = "Specify path to input mutational matrix.") 
 
-parser$add_argument("-s","--sample_matrix", type = 'character', help = "If available, specify path to sample key.", required=FALSE) 
+parser$add_argument("-hierarchy","--hierarchy_matrix", type = 'character', help = "If available, specify path to hierarchy matrix.", required=FALSE) 
 
 parser$add_argument("-a", "--analysis_type", type = "character", default = "Testing", help = "Specify type of analysis run. Options are [testing] or [analysis].", required=TRUE)
 
 parser$add_argument("-b", "--burnin_iterations", type = 'double', default = "5000", help = "Specify number of burn-in iterations. Default set to 5000.", required=FALSE) 
 parser$add_argument("-x", "--burnin_multiplier", type = 'double', default = "10", help = "Specify burin-in iteration multiplier. Default set to 10.", required=FALSE) 
-parser$add_argument("-o", "--posterior", type = 'double', default = "250", help = "Specify number of posterior samples to collect. Default set to 250.", required=FALSE) 
-parser$add_argument("-i", "--posterior_iterations", type = 'double', default = "100", help = "Specify number of iterations collected between samples. Default set to 100.", required=FALSE) 
+parser$add_argument("-o", "--posterior", type = 'double', default = "250", help = "Specify number of posterior samples to collect off each posterior sampling chain. Default set to 250.", required=FALSE) 
+parser$add_argument("-i", "--posterior_iterations", type = 'double', default = "100", help = "Specify number of iterations collected between each posterior sampling chain. Default set to 100.", required=FALSE) 
 
 parser$add_argument("-c", "--mutational_context", type = 'character', default = "SBS96", help = "Specify context of mutational matrix; options are SBS96 (default), SBS288, SBS1536, DBS78, or ID83.", required = TRUE)
 
@@ -39,8 +39,8 @@ if(!exists("mutation_matrix_path")) {
   stop(sprintf("Mutation matrix not provided. Please specify by providing path at end of command; Use -h for further information."))
 }
 
-if (!is.null(args$sample_matrix)) {
-  sample_matrix <- args$sample_matrix
+if (!is.null(args$hierarchy_matrix)) {
+  hierarchy_matrix <- args$hierarchy_matrix
 }
 
 if (!is.null(args$mutational_context)) {
@@ -92,20 +92,23 @@ message("Importing user datasets and conducting necessary data wrangling.")
 mutation_types <- mutation_matrix_path
 mutation_types <- read.csv(file = mutation_types, 
                            header = TRUE, sep="\t")
+if (ncol(mutation_types) == 1 ) {
+  mutation_types <- read.table(mutation_matrix, header=T, sep = ",")
+}
 rownames(mutation_types) <- NULL
 mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
 
 ##Sample key  
-if (exists("sample_matrix")) {
-  message(paste("Sample key provided. Incorporating into mutational matrix."))
-  sample_key <- read.csv(file = sample_matrix)
+if (exists("hierarchy_matrix")) {
+  message(paste("Hierarchy matrix provided. Incorporating into mutational matrix."))
+  hierarchy_key <- read.csv(file = hierarchy_matrix)
   samples <- colnames(mutation_types)
-  sample_key_vector <- as.vector(sample_key$sample_type)
-  sample_key_vector_colnames <- paste0(sample_key_vector,"::",samples)
+  hierarchy_key_vector <- as.vector(hierarchy_key$sample_type)
+  hierarchy_key_vector_colnames <- paste0(hierarchy_key_vector,"::",samples)
   
-  colnames(mutation_types) = sample_key_vector_colnames
+  colnames(mutation_types) = hierarchy_key_vector_colnames
 } else {
-  message(paste("No sample key provided, please note that mSigHdp will run assuming a single sample type."))
+  message(paste("No hierarchy provided, please note that mSigHdp will run assuming no hierarchy."))
 }
 
 ### User specification of options
@@ -121,9 +124,9 @@ message(paste0("Creating output subdirectory for run"))
     u.work.dir <- file.path(main_dir,sub_dir)
   }
 
-if (exists("sample_matrix")) {
+if (exists("hierarchy_matrix")) {
   if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.type == 'test' | u.analysis.type == 'Test') {
-    message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples with 5 iterations between samples."))
+    message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples off each chain with 5 iterations between each."))
     results <- mSigHdp::RunHdpxParallel(
       input.catalog = mutation_types,
       seedNumber = 123,
@@ -145,7 +148,7 @@ if (exists("sample_matrix")) {
     )
   }
  if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
-  message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples. Collecting ", u.post.space, " iterations between samples."))
+  message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples off each posterior sampling chain. Collecting ", u.post.space, " iterations between chain."))
   results <- mSigHdp::RunHdpxParallel(
     input.catalog        = mutation_types,
     out.dir              = u.work.dir, 
@@ -168,9 +171,9 @@ if (exists("sample_matrix")) {
   }
 }
 
-if (!exists("sample_matrix")) { #Single sample type, therefore, multi.types option turned to FALSE
+if (!exists("hierarchy_matrix")) { #Flat run, therefore, multi.types option turned to FALSE
   if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.type == 'test' | u.analysis.type == 'Test'){
-    message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples with 5 iterations between samples."))
+    message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples off each posterior sampling chain with 5 iterations between each."))
     results <- mSigHdp::RunHdpxParallel(
       input.catalog = mutation_types,
       seedNumber = 123,
@@ -191,7 +194,7 @@ if (!exists("sample_matrix")) { #Single sample type, therefore, multi.types opti
       verbose = TRUE
     )
   } else if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
-    message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples. Collecting ", u.post.space, " iterations between samples."))
+    message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples off each posterior sampling chain. Collecting ", u.post.space, " iterations between each chain."))
     results <- mSigHdp::RunHdpxParallel(
       input.catalog        = mutation_types,
       out.dir              = u.work.dir, 

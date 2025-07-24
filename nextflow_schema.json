@@ -49,7 +49,7 @@
       "type": "string",
       "default": "analysis"
     },
-    "sample_matrix": {
+    "hierarchy_matrix": {
       "type": "string"
     },
     "burnin_iterations": {
