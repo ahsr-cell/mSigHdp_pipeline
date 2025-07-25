@@ -4,6 +4,7 @@ process mSigHdp {
 
     input:
     path hierarchy_matrix
+    val hierarchy_parameter
     val mutational_context
     val analysis_type
     val burnin_iterations 
@@ -19,6 +20,6 @@ process mSigHdp {
 
     script:
     """
-    Rscript --vanilla ${projectDir}/bin/mSigHdp.R -hierarchy ${hierarchy_matrix} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
+    Rscript --vanilla ${projectDir}/bin/mSigHdp.R -hierarchy ${hierarchy_matrix} -hp ${hierarchy_parameter} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
     """
 }

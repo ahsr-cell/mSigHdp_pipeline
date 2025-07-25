@@ -24,4 +24,4 @@ def main(args):
 
 if __name__ == "__main__":
     args = get_arguments().parse_args()
-    sys.exit(main(args))    
+    sys.exit(main(args))

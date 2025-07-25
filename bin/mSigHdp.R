@@ -20,7 +20,8 @@ parser = ArgumentParser(prog = 'mSigHdp', description='mSigHdp pipeline')
 #Command line arguments
 parser$add_argument("matrix_path", nargs = 1, help = "Specify path to input mutational matrix.") 
 
-parser$add_argument("-hierarchy","--hierarchy_matrix", type = 'character', help = "If available, specify path to hierarchy matrix.", required=FALSE) 
+parser$add_argument("-hierarchy","--hierarchy_matrix", type = 'character', help = "If available, specify path to hierarchy matrix.", required=FALSE)
+parser$add_argument("-hp","--hierarchy_parameter", type = 'character', help = "Specify primary hierarchy parameter as listed in input hierarchy matrix (e.g., column name). Used to identify column.", required=FALSE)
 
 parser$add_argument("-a", "--analysis_type", type = "character", default = "Testing", help = "Specify type of analysis run. Options are [testing] or [analysis].", required=TRUE)
 
@@ -41,6 +42,10 @@ if(!exists("mutation_matrix_path")) {
 
 if (!is.null(args$hierarchy_matrix)) {
   hierarchy_matrix <- args$hierarchy_matrix
+}
+
+if (!is.null("args$hierarchy_parameter")) {
+  hp <- args$hierarchy_parameter
 }
 
 if (!is.null(args$mutational_context)) {
@@ -102,13 +107,17 @@ mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
 if (exists("hierarchy_matrix")) {
   message(paste("Hierarchy matrix provided. Incorporating into mutational matrix."))
   hierarchy_key <- read.csv(file = hierarchy_matrix)
+  if (ncol(hierarchy_matrix) == 1 ) {
+    hierarchy_key <- read.table(hierarchy_matrix, header=T, sep = "\t")
+  }
   samples <- colnames(mutation_types)
-  hierarchy_key_vector <- as.vector(hierarchy_key$sample_type)
+  hpi <- which(colnames(hierarchy_key)==hp)
+  hierarchy_key_vector <- as.vector(hierarchy_key[,hpi])
   hierarchy_key_vector_colnames <- paste0(hierarchy_key_vector,"::",samples)
   
   colnames(mutation_types) = hierarchy_key_vector_colnames
 } else {
-  message(paste("No hierarchy provided, please note that mSigHdp will run assuming no hierarchy."))
+  message(paste("No hierarchy matrix provided, please note that mSigHdp will run assuming no hierarchy."))
 }
 
 ### User specification of options
