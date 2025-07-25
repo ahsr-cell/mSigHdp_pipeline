@@ -1,270 +1,111 @@
-Jul-23 09:41:05.716 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf --sample_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_Manuscript_sample_key.csv --mutational_context SBS96 --analysis_type analysis --burnin_iterations 100 --burnin_multiplier 10 --posterior 10 --posterior_iterations 10 --mutational_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_GEC_Manuscript_Subset_v1.SBS96.txt --outdir /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/ -resume -profile singularity -c /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-23 09:41:05.890 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.2
-Jul-23 09:41:05.921 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/nfs/users/nfs_a/ar39/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.2,nf-tower@1.9.3,nf-wave@1.7.4
-Jul-23 09:41:05.949 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-23 09:41:05.951 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-23 09:41:05.954 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jul-23 09:41:06.170 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-23 09:41:06.204 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
-Jul-23 09:41:06.212 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-23 09:41:06.214 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
-Jul-23 09:41:06.214 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-23 09:41:06.255 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /nfs/users/nfs_a/ar39/.nextflow/secrets/store.json
-Jul-23 09:41:06.260 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@39ab59f8] - activable => nextflow.secret.LocalSecretsProvider@39ab59f8
-Jul-23 09:41:06.278 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
-Jul-23 09:41:07.147 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
-Jul-23 09:41:07.329 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, test, charliecloud, apptainer, singularity, arm, wave, test_full, docker, podman]
-Jul-23 09:41:07.401 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jul-23 09:41:07.438 [main] DEBUG nextflow.cli.CmdRun - Launching `/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf` [determined_lavoisier] DSL2 - revision: 0f86a25da4
-Jul-23 09:41:07.441 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jul-23 09:41:07.442 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jul-23 09:41:07.540 [main] DEBUG nextflow.Session - Session UUID: d776f15b-234c-4390-8714-a07a11a3af51
-Jul-23 09:41:07.540 [main] DEBUG nextflow.Session - Run name: determined_lavoisier
-Jul-23 09:41:07.541 [main] DEBUG nextflow.Session - Executor pool size: 20
-Jul-23 09:41:07.561 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jul-23 09:41:07.569 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Jul-23 09:41:07.636 [main] DEBUG nextflow.cli.CmdRun - 
-  Version: 24.10.2 build 5932
-  Created: 27-11-2024 21:23 UTC (21:23 BST)
-  System: Linux 5.15.0-143-generic
-  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 11.0.27+6-post-Ubuntu-0ubuntu122.04
+Jul-25 07:43:25.903 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf --hierarchy_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_Manuscript_sample_key.csv --mutational_context SBS96 --analysis_type analysis --burnin_iterations 100 --burnin_multiplier 10 --posterior 10 --posterior_iterations 10 --mutational_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_GEC_Manuscript_Subset_v1.SBS96.txt --outdir /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/ -resume -profile singularity -c /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-25 07:43:26.073 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.4
+Jul-25 07:43:26.112 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/nfs/users/nfs_a/ar39/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.3,nf-wave@1.12.1
+Jul-25 07:43:26.154 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-25 07:43:26.155 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-25 07:43:26.160 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-25 07:43:26.182 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-25 07:43:26.216 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
+Jul-25 07:43:26.224 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-25 07:43:26.226 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
+Jul-25 07:43:26.227 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-25 07:43:26.275 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /nfs/users/nfs_a/ar39/.nextflow/secrets/store.json
+Jul-25 07:43:26.280 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6bff19ff] - activable => nextflow.secret.LocalSecretsProvider@6bff19ff
+Jul-25 07:43:26.336 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-25 07:43:27.137 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-25 07:43:27.360 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, test, charliecloud, apptainer, singularity, arm, wave, test_full, docker, podman]
+Jul-25 07:43:27.407 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-25 07:43:27.433 [main] DEBUG nextflow.cli.CmdRun - Launching `/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf` [spontaneous_leavitt] DSL2 - revision: 86bbec883d
+Jul-25 07:43:27.434 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-25 07:43:27.435 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-25 07:43:27.511 [main] DEBUG nextflow.Session - Session UUID: d776f15b-234c-4390-8714-a07a11a3af51
+Jul-25 07:43:27.512 [main] DEBUG nextflow.Session - Run name: spontaneous_leavitt
+Jul-25 07:43:27.512 [main] DEBUG nextflow.Session - Executor pool size: 20
+Jul-25 07:43:27.524 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-25 07:43:27.530 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-25 07:43:27.569 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.4 build 5950
+  Created: 16-06-2025 14:23 UTC (15:23 BST)
+  System: Linux 5.15.0-141-generic
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.8.1+1
   Encoding: UTF-8 (UTF-8)
-  Process: 772490@node-13-19 [10.160.64.28]
-  CPUs: 20 - Mem: 2 TB (738.7 GB) - Swap: 67.4 GB (67.3 GB)
-Jul-23 09:41:07.695 [main] DEBUG nextflow.Session - Work-dir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work [lustre]
-Jul-23 09:41:07.744 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jul-23 09:41:07.764 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jul-23 09:41:07.808 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jul-23 09:41:07.827 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 21; maxThreads: 1000
-Jul-23 09:41:07.995 [main] DEBUG nextflow.Session - Session start
-Jul-23 09:41:08.284 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jul-23 09:41:08.576 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:mSigHdp` matches process mSigHdp
-Jul-23 09:41:08.617 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-23 09:41:08.618 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-23 09:41:08.631 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
-Jul-23 09:41:08.638 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 4000; pollInterval: 5s; dumpInterval: 5m 
-Jul-23 09:41:08.642 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
-Jul-23 09:41:08.644 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
-Jul-23 09:41:08.652 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
-Jul-23 09:41:08.656 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
-Jul-23 09:41:08.756 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_Extracted
-Jul-23 09:41:08.759 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-23 09:41:08.759 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-23 09:41:08.768 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_Extracted
-Jul-23 09:41:08.770 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-23 09:41:08.771 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-23 09:41:08.778 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_LowConfidence
-Jul-23 09:41:08.780 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-23 09:41:08.781 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-23 09:41:08.787 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_LowConfidence
-Jul-23 09:41:08.790 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-23 09:41:08.791 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-23 09:41:08.796 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: mSigHdp, SigProfilerAssignment, SigPlt_Extracted, SigPlt_LowConfidence, SigPA_Extracted, SigProfilerPlotting, SigPA_LowConfidence
-Jul-23 09:41:08.797 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
-Jul-23 09:41:08.798 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > mSigHdp
-Jul-23 09:41:08.799 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_Extracted
-Jul-23 09:41:08.800 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_Extracted
-Jul-23 09:41:08.802 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_LowConfidence
-Jul-23 09:41:08.802 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_LowConfidence
-Jul-23 09:41:08.803 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_2ab25ce3cb4903ce: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/./workflows/SigProfilerAssignment.nf
-  Script_a87588123135bae8: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/./workflows/SigProfilerPlotting.nf
-  Script_5bf94bdd2396b059: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/./workflows/mSigHdp.nf
-  Script_89946c4af9f3eec3: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
-Jul-23 09:41:08.804 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Jul-23 09:41:08.804 [main] DEBUG nextflow.Session - Session await
-Jul-23 09:41:09.575 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process mSigHdp > jobId: 498734; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21
-Jul-23 09:41:09.576 [Task submitter] INFO  nextflow.Session - [d8/4bcca9] Submitted process > mSigHdp
-Jul-23 09:46:13.677 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 09:51:13.709 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 09:56:13.727 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:01:13.738 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:06:13.753 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:11:13.763 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:16:13.778 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:21:13.791 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:26:13.800 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:31:13.810 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:36:13.818 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:41:13.833 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:46:13.841 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:51:13.853 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 10:56:13.859 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:01:13.869 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:06:13.880 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:11:13.895 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:16:13.908 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:21:13.916 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:26:13.927 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:31:13.940 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:36:13.954 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:41:13.963 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:46:13.972 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:51:13.980 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 11:56:13.993 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:01:14.011 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:06:14.019 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:11:14.030 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:16:14.040 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:21:14.096 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:26:14.111 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:31:14.114 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:36:14.125 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:41:14.138 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:46:14.149 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:51:14.160 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 12:56:14.171 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:01:14.183 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:06:14.194 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:11:14.207 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:16:14.220 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:21:14.229 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:26:14.248 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:31:14.253 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:36:14.262 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:41:14.270 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:46:14.277 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:51:14.287 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 13:56:14.294 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:01:14.302 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:06:14.310 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:11:14.320 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:16:14.326 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:21:14.331 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:26:14.342 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:31:14.352 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:36:14.363 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:41:14.373 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:46:14.380 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:51:14.386 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 14:56:14.394 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:01:14.400 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:06:14.410 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:11:14.415 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:16:14.495 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:21:14.510 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:26:14.519 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:31:14.528 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:36:14.537 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:41:14.548 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:46:14.557 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:51:14.567 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 15:56:14.575 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:01:14.586 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:06:14.598 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:11:14.608 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:16:14.621 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:21:14.630 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:26:14.640 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:31:14.650 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:36:14.658 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:41:14.671 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:46:14.678 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:51:14.689 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 16:56:14.697 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 17:01:14.702 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: -; ]
-Jul-23 17:02:44.713 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 498734; id: 1; name: mSigHdp; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21 started: 1753260073658; exited: 2025-07-23T16:02:44Z; ]
-Jul-23 17:02:44.715 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Jul-23 17:02:44.748 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=mSigHdp; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21
-  error [nextflow.exception.ProcessFailedException]: Process `mSigHdp` terminated with an error exit status (1)
-Jul-23 17:02:45.256 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'mSigHdp'
+  Process: 1687707@node-14-15 [10.160.64.52]
+  CPUs: 20 - Mem: 2 TB (954.8 GB) - Swap: 67.4 GB (67.3 GB)
+Jul-25 07:43:27.620 [main] DEBUG nextflow.Session - Work-dir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work [lustre]
+Jul-25 07:43:27.665 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-25 07:43:27.681 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-25 07:43:27.688 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-25 07:43:27.717 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-25 07:43:27.729 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 21; maxThreads: 1000
+Jul-25 07:43:27.887 [main] DEBUG nextflow.Session - Session start
+Jul-25 07:43:28.175 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-25 07:43:28.528 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:mSigHdp` matches process mSigHdp
+Jul-25 07:43:28.561 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-25 07:43:28.562 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-25 07:43:28.575 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Jul-25 07:43:28.582 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 4000; pollInterval: 5s; dumpInterval: 5m 
+Jul-25 07:43:28.586 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
+Jul-25 07:43:28.588 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
+Jul-25 07:43:28.593 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Jul-25 07:43:28.598 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Jul-25 07:43:28.628 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'mSigHdp': maxForks=0; fair=false; array=0
+Jul-25 07:43:28.708 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_Extracted
+Jul-25 07:43:28.712 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-25 07:43:28.712 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-25 07:43:28.714 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPlt_Extracted': maxForks=0; fair=false; array=0
+Jul-25 07:43:28.721 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_Extracted
+Jul-25 07:43:28.723 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-25 07:43:28.724 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-25 07:43:28.725 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_Extracted': maxForks=0; fair=false; array=0
+Jul-25 07:43:28.731 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_LowConfidence
+Jul-25 07:43:28.734 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-25 07:43:28.734 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-25 07:43:28.735 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPlt_LowConfidence': maxForks=0; fair=false; array=0
+Jul-25 07:43:28.741 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_LowConfidence
+Jul-25 07:43:28.743 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-25 07:43:28.744 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-25 07:43:28.745 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_LowConfidence': maxForks=0; fair=false; array=0
+Jul-25 07:43:28.749 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: mSigHdp, SigProfilerAssignment, SigPlt_Extracted, SigPlt_LowConfidence, SigPA_Extracted, SigProfilerPlotting, SigPA_LowConfidence
+Jul-25 07:43:28.753 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
+Jul-25 07:43:28.754 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > mSigHdp
+Jul-25 07:43:28.755 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_Extracted
+Jul-25 07:43:28.755 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_Extracted
+Jul-25 07:43:28.755 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_LowConfidence
+Jul-25 07:43:28.756 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_LowConfidence
+Jul-25 07:43:28.757 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_11f4f6691e28bcfa: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
+  Script_2ab25ce3cb4903ce: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerAssignment.nf
+  Script_a87588123135bae8: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerPlotting.nf
+  Script_e3a0c7556085bb62: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/mSigHdp.nf
+Jul-25 07:43:28.757 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-25 07:43:28.757 [main] DEBUG nextflow.Session - Session await
+Jul-25 07:43:29.016 [Actor Thread 7] INFO  nextflow.processor.TaskProcessor - [4c/555ffc] Cached process > mSigHdp
+Jul-25 07:43:29.047 [Actor Thread 19] INFO  nextflow.processor.TaskProcessor - [9e/4080e7] Cached process > SigPlt_Extracted
+Jul-25 07:43:29.049 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [8c/dc7ff8] Cached process > SigPlt_LowConfidence
+Jul-25 07:43:29.056 [Actor Thread 20] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-25 07:43:29.461 [PublishDir-3] DEBUG nextflow.processor.PublishDir - Failed to publish file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/9e/4080e73fbb6ac1bd042cfc937b9ac4/Signature_Spectra; to: /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/Signature_Spectra [copy] -- attempt: 1; reason: /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/Signature_Spectra
+Jul-25 07:43:29.634 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPA_LowConfidence > jobId: 993192; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c7/1bd00e9ed94d228a7c60b167d55ec5
+Jul-25 07:43:29.634 [Task submitter] INFO  nextflow.Session - [c7/1bd00e] Submitted process > SigPA_LowConfidence
+Jul-25 07:43:29.920 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPA_Extracted > jobId: 993193; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b5/624a12f502be8005e6d1a78d447326
+Jul-25 07:43:29.920 [Task submitter] INFO  nextflow.Session - [b5/624a12] Submitted process > SigPA_Extracted
+Jul-25 07:43:33.608 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 993192; id: 5; name: SigPA_LowConfidence; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c7/1bd00e9ed94d228a7c60b167d55ec5 started: 1753425813598; exited: 2025-07-25T06:43:31Z; ]
+Jul-25 07:43:33.609 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-25 07:43:33.617 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 993193; id: 2; name: SigPA_Extracted; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b5/624a12f502be8005e6d1a78d447326 started: 1753425813611; exited: 2025-07-25T06:43:31Z; ]
+Jul-25 07:43:33.619 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_LowConfidence; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c7/1bd00e9ed94d228a7c60b167d55ec5
+  error [nextflow.exception.ProcessFailedException]: Process `SigPA_LowConfidence` terminated with an error exit status (1)
+Jul-25 07:43:33.620 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_Extracted; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b5/624a12f502be8005e6d1a78d447326
+  error [nextflow.exception.ProcessFailedException]: Process `SigPA_Extracted` terminated with an error exit status (1)
+Jul-25 07:43:33.668 [TaskFinalizer-2] ERROR nextflow.processor.TaskProcessor - Error executing process > 'SigPA_Extracted'
 
 Caused by:
-  Process `mSigHdp` terminated with an error exit status (1)
+  Process `SigPA_Extracted` terminated with an error exit status (1)
 
 
 Command executed:
 
-  Rscript --vanilla /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin/mSigHdp.R -s EAC_Manuscript_sample_key.csv -c SBS96 -a analysis -b 100 -x 10 -o 10 -i 10 EAC_GEC_Manuscript_Subset_v1.SBS96.txt
+  SigProfilerAssignment.py --mutational_matrix EAC_GEC_Manuscript_Subset_v1.SBS96.txt --deNovoSignatures_matrix mSigHdp_deNovoSignatures.txt
 
 Command exit status:
   1
@@ -273,70 +114,27 @@ Command output:
   (empty)
 
 Command error:
-  26 samples in Iran
-  23 samples in Brazil
-  5 samples in Kenya
-  43 samples in Canada
-  4 samples in Colombia
-  107 samples in China
-  277 samples in United Kingdom
-  1 samples in Malawi
-  26 samples in Iran
-  23 samples in Brazil
-  5 samples in Kenya
-  43 samples in Canada
-  4 samples in Colombia
-  107 samples in China
-  277 samples in United Kingdom
-  1 samples in Malawi
-  26 samples in Iran
-  23 samples in Brazil
-  5 samples in Kenya
-  43 samples in Canada
-  4 samples in Colombia
-  107 samples in China
-  277 samples in United Kingdom
-  1 samples in Malawi
-  26 samples in Iran
-  23 samples in Brazil
-  5 samples in Kenya
-  43 samples in Canada
-  4 samples in Colombia
-  107 samples in China
-  277 samples in United Kingdom
-  1 samples in Malawi
-  26 samples in Iran
-  23 samples in Brazil
-  5 samples in Kenya
-  43 samples in Canada
-  4 samples in Colombia
-  107 samples in China
-  277 samples in United Kingdom
-  1 samples in Malawi
-  26 samples in Iran
-  23 samples in Brazil
-  5 samples in Kenya
-  43 samples in Canada
-  4 samples in Colombia
-  107 samples in China
-  Error: unexpected symbol in:
-  "      CPU.cores            = 20, 
-        seedNumber           ork.dir"
-  Execution halted
+  Traceback (most recent call last):
+    File "/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin/SigProfilerAssignment.py", line 4, in <module>
+      from SigProfilerAssignment import Analyzer as Analyze
+    File "/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin/SigProfilerAssignment.py", line 4, in <module>
+      from SigProfilerAssignment import Analyzer as Analyze
+  ImportError: cannot import name 'Analyzer' from partially initialized module 'SigProfilerAssignment' (most likely due to a circular import) (/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin/SigProfilerAssignment.py)
 
 Work dir:
-  /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/d8/4bcca959cc8f3cbe2358f9e38c5f21
+  /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b5/624a12f502be8005e6d1a78d447326
 
 Container:
-  /lustre/scratch125/casm/teams/team267/projects/DockerImages/msighdp_amd64_0.0.2.sif
+  /lustre/scratch125/casm/teams/team267/projects/DockerImages/sigprofilerassignment_amd64_0.0.1.sif
 
-Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
-Jul-23 17:02:45.263 [TaskFinalizer-1] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
-Jul-23 17:02:45.270 [main] DEBUG nextflow.Session - Session await > all processes finished
-Jul-23 17:02:45.303 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf) - terminating tasks monitor poll loop
-Jul-23 17:02:45.303 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jul-23 17:02:45.307 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
-Jul-23 17:02:45.318 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=7h 21m 31s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=100 GB; ]
-Jul-23 17:02:45.519 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Jul-23 17:02:45.575 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-Jul-23 17:02:45.576 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Jul-25 07:43:33.671 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-25 07:43:33.672 [TaskFinalizer-2] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jul-25 07:43:33.683 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf) - terminating tasks monitor poll loop
+Jul-25 07:43:33.684 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-25 07:43:33.700 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-25 07:43:33.700 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-25 07:43:33.709 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=2; ignoredCount=0; cachedCount=3; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=15ms; cachedDuration=10h 18m 42s;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=12 GB; ]
+Jul-25 07:43:33.894 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-25 07:43:33.914 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-25 07:43:33.914 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

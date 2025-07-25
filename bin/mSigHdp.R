@@ -98,7 +98,7 @@ if (ncol(mutation_types) == 1 ) {
 rownames(mutation_types) <- NULL
 mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
 
-##Sample key  
+##Hierarchy matrix  
 if (exists("hierarchy_matrix")) {
   message(paste("Hierarchy matrix provided. Incorporating into mutational matrix."))
   hierarchy_key <- read.csv(file = hierarchy_matrix)
@@ -120,8 +120,10 @@ message(paste0("Creating output subdirectory for run"))
   if (!file.exists(sub_dir)){
     dir.create(file.path(main_dir, sub_dir))
     u.work.dir <- file.path(main_dir,sub_dir)
+    u.work.dir
   } else {
     u.work.dir <- file.path(main_dir,sub_dir)
+    message(paste0("Work directory is ",u.work.dir))
   }
 
 if (exists("hierarchy_matrix")) {
@@ -146,6 +148,7 @@ if (exists("hierarchy_matrix")) {
       checkpoint = TRUE,   
       verbose = TRUE
     )
+    message(paste0("mSigHdp analysis complete. Preparing final output files."))
   }
  if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
   message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples off each posterior sampling chain. Collecting ", u.post.space, " iterations between chain."))
@@ -168,6 +171,7 @@ if (exists("hierarchy_matrix")) {
     checkpoint           = TRUE,
     verbose              = FALSE
     )
+    message(paste0("mSigHdp analysis complete. Preparing final output files."))
   }
 }
 
@@ -193,6 +197,7 @@ if (!exists("hierarchy_matrix")) { #Flat run, therefore, multi.types option turn
       checkpoint = TRUE,   
       verbose = TRUE
     )
+    message(paste0("mSigHdp analysis complete. Preparing final output files."))
   } else if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
     message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples off each posterior sampling chain. Collecting ", u.post.space, " iterations between each chain."))
     results <- mSigHdp::RunHdpxParallel(
@@ -214,6 +219,7 @@ if (!exists("hierarchy_matrix")) { #Flat run, therefore, multi.types option turn
       checkpoint           = TRUE,
       verbose              = FALSE
       )
+      message(paste0("mSigHdp analysis complete. Preparing final output files."))
     }
 }
 
@@ -228,4 +234,4 @@ colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETT
 write.table(mSigHdp_Extracted_Signatures, file = paste0(u.work.dir,"/mSigHdp_deNovoSignatures.txt"), sep = "\t",
                 row.names = TRUE, col.names = TRUE)
   
-message(paste0("mSigHdp successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))
+message(paste0("mSigHdp run successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))
