@@ -40,7 +40,8 @@ workflow {
 
             SigPA_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
-                params.mutational_matrix
+                params.mutational_matrix,
+                params.outdir
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
                 SigPlt_LowConfidence(
@@ -49,7 +50,8 @@ workflow {
                 )
                 SigPA_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
-                    params.mutational_matrix
+                    params.mutational_matrix,
+                    params.outdir
                 )
             }
         }
@@ -92,12 +94,14 @@ workflow {
             )
             SigPA_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
-                params.mutational_matrix
+                params.mutational_matrix,
+                params.outdir
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
                 SigPA_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
-                    params.mutational_matrix
+                    params.mutational_matrix,
+                    params.outdir
                 )
             }
         }
