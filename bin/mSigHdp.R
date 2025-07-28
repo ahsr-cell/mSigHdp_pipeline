@@ -234,6 +234,7 @@ if (!exists("hierarchy_matrix")) { #Flat run, therefore, multi.types option turn
 
 mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
                                            header = TRUE)
+
 mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
   
 mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
@@ -242,5 +243,11 @@ colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETT
   
 write.table(mSigHdp_Extracted_Signatures, file = paste0(u.work.dir,"/mSigHdp_deNovoSignatures.txt"), sep = "\t",
                 row.names = TRUE, col.names = TRUE)
-  
+
+mSigHdp_SigPA_ExtractedSigs <- mSigHdp_Extracted_Signatures
+
+colnames(mSigHdp_SigPA_ExtractedSigs) = c('MutationType', paste0('SBS96', LETTERS[1:ncol(mSigHdp_SigPA_ExtractedSigs) - 1]))
+
+write.table(mSigHdp_SigPA_ExtractedSigs, file = paste0(u.work.dir,"/mSigHdp_deNovoSigs_sigPADecomp.txt"), quote = F, row.names = F, sep = '\t')
+
 message(paste0("mSigHdp run successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))

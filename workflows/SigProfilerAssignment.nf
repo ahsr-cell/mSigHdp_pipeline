@@ -12,6 +12,6 @@ process SigProfilerAssignment {
 
     script:
     """
-    SigProfilerAssignment_wrapper.py --mutational_matrix ${mutational_matrix} --deNovoSignatures_matrix ${deNovoSignatures_matrix} --output_directory ${outdir}
+    SigProfilerAssignment_wrapper.py --mutational_matrix ${mutational_matrix} --deNovoSignatures_matrix ${deNovoSignatures_matrix} --output_directory ${output_directory}
     """
 }

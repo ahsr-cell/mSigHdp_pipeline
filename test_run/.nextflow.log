@@ -81,3 +81,60 @@ Jul-28 14:01:11.956 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termi
 Jul-28 14:01:11.956 [main] DEBUG nextflow.Session - Session await
 Jul-28 14:01:12.581 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process mSigHdp > jobId: 205314; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21
 Jul-28 14:01:12.582 [Task submitter] INFO  nextflow.Session - [c5/02011d] Submitted process > mSigHdp
+Jul-28 14:06:16.848 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: -; ]
+Jul-28 14:11:16.865 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: -; ]
+Jul-28 14:16:16.895 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: -; ]
+Jul-28 14:21:16.901 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: -; ]
+Jul-28 14:26:16.916 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: -; ]
+Jul-28 14:31:16.924 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: -; ]
+Jul-28 14:36:16.942 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: 2025-07-28T13:36:14Z; ]
+Jul-28 14:36:16.947 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 205314; id: 1; name: mSigHdp; status: COMPLETED; exit: 0; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/c5/02011d27eace2f9990a66af02c4f21 started: 1753707676877; exited: 2025-07-28T13:36:14Z; ]
+Jul-28 14:36:16.948 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-28 14:36:16.990 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-28 14:36:16.993 [Actor Thread 18] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_LowConfidence; work-dir=null
+  error [nextflow.exception.ProcessUnrecoverableException]: Process `SigPA_LowConfidence` script contains error(s)
+Jul-28 14:36:16.993 [Actor Thread 21] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_Extracted; work-dir=null
+  error [nextflow.exception.ProcessUnrecoverableException]: Process `SigPA_Extracted` script contains error(s)
+Jul-28 14:36:17.006 [Actor Thread 13] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_LowConfidence; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Jul-28 14:36:17.017 [Actor Thread 21] ERROR nextflow.processor.TaskProcessor - Error executing process > 'SigPA_Extracted'
+
+Caused by:
+  No such variable: outdir -- Check script '/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerAssignment.nf' at line: 14
+
+
+Source block:
+  """
+  SigProfilerAssignment_wrapper.py --mutational_matrix ${mutational_matrix} --deNovoSignatures_matrix ${deNovoSignatures_matrix} --output_directory ${outdir}
+  """
+
+Container:
+  /lustre/scratch125/casm/teams/team267/projects/DockerImages/sigprofilerassignment_amd64_0.0.1.sif
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Jul-28 14:36:17.020 [Actor Thread 21] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jul-28 14:36:17.048 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-28 14:36:17.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf) - terminating tasks monitor poll loop
+Jul-28 14:36:17.049 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-28 14:36:17.049 [Actor Thread 10] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_Extracted; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Jul-28 14:36:17.052 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-28 14:36:17.275 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPlt_Extracted > jobId: 209843; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/bc/bef3d800ff41c1427b7156139c98e4
+Jul-28 14:36:17.276 [Task submitter] INFO  nextflow.Session - [bc/bef3d8] Submitted process > SigPlt_Extracted
+Jul-28 14:36:17.579 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-28 14:36:17.584 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Jul-28 14:36:17.628 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=1; submittedCount=1; runningCount=-1; retriesCount=0; abortedCount=1; succeedDuration=11h 40m 1s; failedDuration=0ms; cachedDuration=0ms;loadCpus=-1; loadMemory=0; peakRunning=1; peakCpus=20; peakMemory=50 GB; ]
+Jul-28 14:36:17.668 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-28 14:36:17.730 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-28 14:36:17.731 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

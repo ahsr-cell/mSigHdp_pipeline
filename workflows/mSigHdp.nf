@@ -16,6 +16,7 @@ process mSigHdp {
     output:
     path "deNovo_signatures", emit: deNovo_signaturesdir
     path "deNovo_signatures/mSigHdp_deNovoSignatures.txt", emit: deNovo_extractedsigs
+    path "mSigHdp_deNovoSigs_sigPADecomp.txt", emit: deNovo_extsigs_sigPA
     path "deNovo_signatures/low.confidence.signatures.csv", emit: deNovo_lowconfsigs, optional: true
 
     script:

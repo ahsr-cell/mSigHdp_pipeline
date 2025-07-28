@@ -39,7 +39,7 @@ workflow {
             )
 
             SigPA_Extracted(
-                mSigHdp.out.deNovo_extractedsigs,
+                mSigHdp.out.deNovo_extsigs_sigPA,
                 params.mutational_matrix,
                 params.outdir
             )
@@ -93,7 +93,7 @@ workflow {
                 params.mutational_matrix
             )
             SigPA_Extracted(
-                mSigHdp.out.deNovo_extractedsigs,
+                mSigHdp.out.deNovo_extsigs_sigPA,
                 params.mutational_matrix,
                 params.outdir
             )
