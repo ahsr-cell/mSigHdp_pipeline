@@ -107,7 +107,7 @@ mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
 if (exists("hierarchy_matrix")) {
   message(paste("Hierarchy matrix provided. Incorporating into mutational matrix."))
   hierarchy_key <- read.csv(file = hierarchy_matrix)
-  if (ncol(hierarchy_matrix) == 1 ) {
+  if (ncol(hierarchy_key) == 1 ) {
     hierarchy_key <- read.table(hierarchy_matrix, header=T, sep = "\t")
   }
   samples <- colnames(mutation_types)

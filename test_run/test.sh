@@ -10,7 +10,7 @@
 #BSUB -R "select[mem>100000] rusage[mem=100000]"
 
 module load cellgen/nextflow/25.04.4
-module load ISG/singularity/3.11.4
+module load ISG/singularity/3.11.4 
 
 config_file=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
 main_script=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
@@ -20,9 +20,11 @@ hierarchy_parameter=sample_type
 mutational_context=SBS96
 outdir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/
 
+export MPLCONFIGDIR=${outdir} 
+
 nextflow run ${main_script} \
      --hierarchy_matrix ${hierarchy_matrix} \
-     --hierarchy_parameter ${hierarchy_parameter}
+     --hierarchy_parameter ${hierarchy_parameter} \
      --mutational_context ${mutational_context} \
      --analysis_type analysis \
      --burnin_iterations 100 \

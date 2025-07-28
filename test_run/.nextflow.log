@@ -1,106 +1,124 @@
-Jul-25 10:55:45.110 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf --hierarchy_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_Manuscript_sample_key.csv --mutational_context SBS96 --analysis_type analysis --burnin_iterations 100 --burnin_multiplier 10 --posterior 10 --posterior_iterations 10 --mutational_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_GEC_Manuscript_Subset_v1.SBS96.txt --outdir /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/ -resume -profile singularity -c /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-25 10:55:45.241 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.4
-Jul-25 10:55:45.269 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/nfs/users/nfs_a/ar39/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.3,nf-wave@1.12.1
-Jul-25 10:55:45.295 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-25 10:55:45.297 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-25 10:55:45.300 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jul-25 10:55:45.314 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-25 10:55:45.340 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
-Jul-25 10:55:45.347 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-25 10:55:45.349 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
-Jul-25 10:55:45.350 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-25 10:55:45.394 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /nfs/users/nfs_a/ar39/.nextflow/secrets/store.json
-Jul-25 10:55:45.398 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@61e45f87] - activable => nextflow.secret.LocalSecretsProvider@61e45f87
-Jul-25 10:55:45.438 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
-Jul-25 10:55:46.266 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
-Jul-25 10:55:46.493 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, test, charliecloud, apptainer, singularity, arm, wave, test_full, docker, podman]
-Jul-25 10:55:46.543 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jul-25 10:55:46.570 [main] DEBUG nextflow.cli.CmdRun - Launching `/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf` [festering_feynman] DSL2 - revision: 86bbec883d
-Jul-25 10:55:46.573 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jul-25 10:55:46.573 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jul-25 10:55:46.654 [main] DEBUG nextflow.Session - Session UUID: d776f15b-234c-4390-8714-a07a11a3af51
-Jul-25 10:55:46.655 [main] DEBUG nextflow.Session - Run name: festering_feynman
-Jul-25 10:55:46.656 [main] DEBUG nextflow.Session - Executor pool size: 20
-Jul-25 10:55:46.671 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jul-25 10:55:46.680 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-25 10:55:46.731 [main] DEBUG nextflow.cli.CmdRun - 
+Jul-28 10:13:56.130 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf --hierarchy_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_Manuscript_sample_key.csv --hierarchy_parameter sample_type --mutational_context SBS96 --analysis_type analysis --burnin_iterations 100 --burnin_multiplier 10 --posterior 10 --posterior_iterations 10 --mutational_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_GEC_Manuscript_Subset_v1.SBS96.txt --outdir /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/ -resume -profile singularity -c /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-28 10:13:56.285 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.4
+Jul-28 10:13:56.318 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/nfs/users/nfs_a/ar39/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.3,nf-wave@1.12.1
+Jul-28 10:13:56.350 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-28 10:13:56.352 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-28 10:13:56.356 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-28 10:13:56.374 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-28 10:13:56.403 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
+Jul-28 10:13:56.409 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-28 10:13:56.411 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
+Jul-28 10:13:56.412 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-28 10:13:56.466 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /nfs/users/nfs_a/ar39/.nextflow/secrets/store.json
+Jul-28 10:13:56.471 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6ecd665] - activable => nextflow.secret.LocalSecretsProvider@6ecd665
+Jul-28 10:13:56.514 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-28 10:13:57.338 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-28 10:13:57.543 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, test, charliecloud, apptainer, singularity, arm, wave, test_full, docker, podman]
+Jul-28 10:13:57.590 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-28 10:13:57.619 [main] DEBUG nextflow.cli.CmdRun - Launching `/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf` [trusting_goldstine] DSL2 - revision: dae9a7ab27
+Jul-28 10:13:57.621 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-28 10:13:57.622 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-28 10:13:57.705 [main] DEBUG nextflow.Session - Session UUID: a589bb80-f31e-4ebe-8505-6e96334aa8a8
+Jul-28 10:13:57.706 [main] DEBUG nextflow.Session - Run name: trusting_goldstine
+Jul-28 10:13:57.706 [main] DEBUG nextflow.Session - Executor pool size: 20
+Jul-28 10:13:57.719 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-28 10:13:57.725 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-28 10:13:57.761 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.04.4 build 5950
   Created: 16-06-2025 14:23 UTC (15:23 BST)
-  System: Linux 5.15.0-143-generic
+  System: Linux 5.15.0-142-generic
   Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.8.1+1
   Encoding: UTF-8 (UTF-8)
-  Process: 1284372@node-14-25 [10.160.64.62]
-  CPUs: 20 - Mem: 2 TB (641.7 GB) - Swap: 67.4 GB (67.3 GB)
-Jul-25 10:55:46.796 [main] DEBUG nextflow.Session - Work-dir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work [lustre]
-Jul-25 10:55:46.852 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jul-25 10:55:46.869 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jul-25 10:55:46.876 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Jul-25 10:55:46.914 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jul-25 10:55:46.928 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 21; maxThreads: 1000
-Jul-25 10:55:47.092 [main] DEBUG nextflow.Session - Session start
-Jul-25 10:55:47.372 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jul-25 10:55:47.704 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:mSigHdp` matches process mSigHdp
-Jul-25 10:55:47.728 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-25 10:55:47.729 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-25 10:55:47.739 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
-Jul-25 10:55:47.746 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 4000; pollInterval: 5s; dumpInterval: 5m 
-Jul-25 10:55:47.749 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
-Jul-25 10:55:47.751 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
-Jul-25 10:55:47.755 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
-Jul-25 10:55:47.759 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
-Jul-25 10:55:47.784 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'mSigHdp': maxForks=0; fair=false; array=0
-Jul-25 10:55:47.851 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_Extracted
-Jul-25 10:55:47.854 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-25 10:55:47.854 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-25 10:55:47.856 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPlt_Extracted': maxForks=0; fair=false; array=0
-Jul-25 10:55:47.862 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_Extracted
-Jul-25 10:55:47.864 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-25 10:55:47.864 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-25 10:55:47.865 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_Extracted': maxForks=0; fair=false; array=0
-Jul-25 10:55:47.871 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_LowConfidence
-Jul-25 10:55:47.874 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-25 10:55:47.874 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-25 10:55:47.875 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPlt_LowConfidence': maxForks=0; fair=false; array=0
-Jul-25 10:55:47.881 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_LowConfidence
-Jul-25 10:55:47.883 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Jul-25 10:55:47.884 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Jul-25 10:55:47.885 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_LowConfidence': maxForks=0; fair=false; array=0
-Jul-25 10:55:47.889 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: mSigHdp, SigProfilerAssignment, SigPlt_Extracted, SigPlt_LowConfidence, SigPA_Extracted, SigProfilerPlotting, SigPA_LowConfidence
-Jul-25 10:55:47.893 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
-Jul-25 10:55:47.893 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > mSigHdp
-Jul-25 10:55:47.894 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_Extracted
-Jul-25 10:55:47.895 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_Extracted
-Jul-25 10:55:47.895 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_LowConfidence
-Jul-25 10:55:47.895 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_LowConfidence
-Jul-25 10:55:47.896 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_11f4f6691e28bcfa: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
+  Process: 868123@node-14-27 [10.160.64.64]
+  CPUs: 20 - Mem: 2 TB (531.2 GB) - Swap: 67.4 GB (67.3 GB)
+Jul-28 10:13:57.815 [main] DEBUG nextflow.Session - Work-dir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work [lustre]
+Jul-28 10:13:57.855 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-28 10:13:57.870 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-28 10:13:57.875 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-28 10:13:57.903 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-28 10:13:57.914 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 21; maxThreads: 1000
+Jul-28 10:13:58.086 [main] DEBUG nextflow.Session - Session start
+Jul-28 10:13:58.339 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-28 10:13:58.630 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:mSigHdp` matches process mSigHdp
+Jul-28 10:13:58.655 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-28 10:13:58.656 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-28 10:13:58.666 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Jul-28 10:13:58.671 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 4000; pollInterval: 5s; dumpInterval: 5m 
+Jul-28 10:13:58.674 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
+Jul-28 10:13:58.676 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
+Jul-28 10:13:58.679 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Jul-28 10:13:58.683 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Jul-28 10:13:58.708 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'mSigHdp': maxForks=0; fair=false; array=0
+Jul-28 10:13:58.774 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_Extracted
+Jul-28 10:13:58.777 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-28 10:13:58.778 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-28 10:13:58.779 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPlt_Extracted': maxForks=0; fair=false; array=0
+Jul-28 10:13:58.786 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_Extracted
+Jul-28 10:13:58.788 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-28 10:13:58.788 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-28 10:13:58.789 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_Extracted': maxForks=0; fair=false; array=0
+Jul-28 10:13:58.797 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerPlotting` matches process SigPlt_LowConfidence
+Jul-28 10:13:58.799 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-28 10:13:58.799 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-28 10:13:58.801 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPlt_LowConfidence': maxForks=0; fair=false; array=0
+Jul-28 10:13:58.805 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_LowConfidence
+Jul-28 10:13:58.807 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-28 10:13:58.808 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-28 10:13:58.809 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_LowConfidence': maxForks=0; fair=false; array=0
+Jul-28 10:13:58.813 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: mSigHdp, SigProfilerAssignment, SigPlt_Extracted, SigPlt_LowConfidence, SigPA_Extracted, SigProfilerPlotting, SigPA_LowConfidence
+Jul-28 10:13:58.817 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
+Jul-28 10:13:58.817 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > mSigHdp
+Jul-28 10:13:58.819 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_Extracted
+Jul-28 10:13:58.820 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_Extracted
+Jul-28 10:13:58.820 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPlt_LowConfidence
+Jul-28 10:13:58.821 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SigPA_LowConfidence
+Jul-28 10:13:58.821 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_6bdf0a2716296e7a: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
   Script_42fe81f5bc2b0ee2: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerAssignment.nf
   Script_a87588123135bae8: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerPlotting.nf
-  Script_e3a0c7556085bb62: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/mSigHdp.nf
-Jul-25 10:55:47.896 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Jul-25 10:55:47.896 [main] DEBUG nextflow.Session - Session await
-Jul-25 10:55:48.159 [Actor Thread 7] INFO  nextflow.processor.TaskProcessor - [4c/555ffc] Cached process > mSigHdp
-Jul-25 10:55:48.209 [Actor Thread 7] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-25 10:55:48.677 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPlt_LowConfidence > jobId: 45416; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/e0/0de2d6b0ddf93ab2942303307a614a
-Jul-25 10:55:48.678 [Task submitter] INFO  nextflow.Session - [e0/0de2d6] Submitted process > SigPlt_LowConfidence
-Jul-25 10:55:48.920 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPA_LowConfidence > jobId: 45422; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8d/aa2ff213a0544325900fc6e2ecf7d7
-Jul-25 10:55:48.921 [Task submitter] INFO  nextflow.Session - [8d/aa2ff2] Submitted process > SigPA_LowConfidence
-Jul-25 10:55:49.203 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPA_Extracted > jobId: 45426; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/a9/0cbe64beb827421c9f9ac49d213d48
-Jul-25 10:55:49.203 [Task submitter] INFO  nextflow.Session - [a9/0cbe64] Submitted process > SigPA_Extracted
-Jul-25 10:55:49.443 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPlt_Extracted > jobId: 45429; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/98/3e0e0764864509a4cd6a3565854f48
-Jul-25 10:55:49.444 [Task submitter] INFO  nextflow.Session - [98/3e0e07] Submitted process > SigPlt_Extracted
-Jul-25 10:55:57.764 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 45416; id: 4; name: SigPlt_LowConfidence; status: COMPLETED; exit: 0; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/e0/0de2d6b0ddf93ab2942303307a614a started: 1753437352760; exited: 2025-07-25T09:55:53Z; ]
-Jul-25 10:55:57.765 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-25 10:56:02.765 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 45429; id: 2; name: SigPlt_Extracted; status: COMPLETED; exit: 0; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/98/3e0e0764864509a4cd6a3565854f48 started: 1753437352805; exited: 2025-07-25T09:55:59Z; ]
-Jul-25 10:56:07.764 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 45422; id: 5; name: SigPA_LowConfidence; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8d/aa2ff213a0544325900fc6e2ecf7d7 started: 1753437352799; exited: 2025-07-25T09:56:04Z; ]
-Jul-25 10:56:07.769 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 45426; id: 3; name: SigPA_Extracted; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/a9/0cbe64beb827421c9f9ac49d213d48 started: 1753437352802; exited: 2025-07-25T09:56:05Z; ]
-Jul-25 10:56:07.771 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=SigPA_LowConfidence; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/8d/aa2ff213a0544325900fc6e2ecf7d7
-  error [nextflow.exception.ProcessFailedException]: Process `SigPA_LowConfidence` terminated with an error exit status (1)
-Jul-25 10:56:07.772 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=SigPA_Extracted; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/a9/0cbe64beb827421c9f9ac49d213d48
+  Script_8cc9a276179b3b03: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/mSigHdp.nf
+Jul-28 10:13:58.822 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-28 10:13:58.822 [main] DEBUG nextflow.Session - Session await
+Jul-28 10:13:59.655 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process mSigHdp > jobId: 161526; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29
+Jul-28 10:13:59.656 [Task submitter] INFO  nextflow.Session - [85/86263e] Submitted process > mSigHdp
+Jul-28 10:19:03.705 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: -; ]
+Jul-28 10:24:03.721 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: -; ]
+Jul-28 10:29:03.748 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: -; ]
+Jul-28 10:34:03.802 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: -; ]
+Jul-28 10:39:03.816 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: -; ]
+Jul-28 10:44:03.824 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: -; ]
+Jul-28 10:48:43.841 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 161526; id: 1; name: mSigHdp; status: COMPLETED; exit: 0; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/85/86263e64829b0baf76ac2cd4812b29 started: 1753694058687; exited: 2025-07-28T09:48:40Z; ]
+Jul-28 10:48:43.844 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-28 10:48:43.896 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-28 10:48:44.277 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPlt_LowConfidence > jobId: 170375; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/0d/48222975740892b5abcf93298e704f
+Jul-28 10:48:44.277 [Task submitter] INFO  nextflow.Session - [0d/482229] Submitted process > SigPlt_LowConfidence
+Jul-28 10:48:44.548 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPA_Extracted > jobId: 170377; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b7/447cf60017bf7556e67150c7842af7
+Jul-28 10:48:44.549 [Task submitter] INFO  nextflow.Session - [b7/447cf6] Submitted process > SigPA_Extracted
+Jul-28 10:48:44.804 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPlt_Extracted > jobId: 170380; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/0f/148b4bf33e74dc93db47307b6b5fa5
+Jul-28 10:48:44.804 [Task submitter] INFO  nextflow.Session - [0f/148b4b] Submitted process > SigPlt_Extracted
+Jul-28 10:48:45.093 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SigPA_LowConfidence > jobId: 170383; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/e2/6b537fcd52880e6bd8f9ae5673faf2
+Jul-28 10:48:45.094 [Task submitter] INFO  nextflow.Session - [e2/6b537f] Submitted process > SigPA_LowConfidence
+Jul-28 10:48:58.840 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 170375; id: 4; name: SigPlt_LowConfidence; status: COMPLETED; exit: 0; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/0d/48222975740892b5abcf93298e704f started: 1753696128836; exited: 2025-07-28T09:48:55Z; ]
+Jul-28 10:48:58.846 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 170380; id: 3; name: SigPlt_Extracted; status: COMPLETED; exit: 0; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/0f/148b4bf33e74dc93db47307b6b5fa5 started: 1753696128843; exited: 2025-07-28T09:48:58Z; ]
+Jul-28 10:48:59.284 [PublishDir-2] DEBUG nextflow.processor.PublishDir - Failed to publish file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/0d/48222975740892b5abcf93298e704f/Signature_Spectra; to: /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/Signature_Spectra [copy] -- attempt: 1; reason: /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/Signature_Spectra
+Jul-28 10:49:03.838 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 170377; id: 5; name: SigPA_Extracted; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b7/447cf60017bf7556e67150c7842af7 started: 1753696128840; exited: 2025-07-28T09:48:59Z; ]
+~> TaskHandler[jobId: 170383; id: 2; name: SigPA_LowConfidence; status: RUNNING; exit: -; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/e2/6b537fcd52880e6bd8f9ae5673faf2 started: 1753696128846; exited: 2025-07-28T09:49:00Z; ]
+Jul-28 10:49:03.842 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 170377; id: 5; name: SigPA_Extracted; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b7/447cf60017bf7556e67150c7842af7 started: 1753696128840; exited: 2025-07-28T09:48:59Z; ]
+Jul-28 10:49:03.846 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 170383; id: 2; name: SigPA_LowConfidence; status: COMPLETED; exit: 1; error: -; workDir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/e2/6b537fcd52880e6bd8f9ae5673faf2 started: 1753696128846; exited: 2025-07-28T09:49:00Z; ]
+Jul-28 10:49:03.850 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_Extracted; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b7/447cf60017bf7556e67150c7842af7
   error [nextflow.exception.ProcessFailedException]: Process `SigPA_Extracted` terminated with an error exit status (1)
-Jul-25 10:56:07.830 [TaskFinalizer-4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'SigPA_Extracted'
+Jul-28 10:49:03.850 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=SigPA_LowConfidence; work-dir=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/e2/6b537fcd52880e6bd8f9ae5673faf2
+  error [nextflow.exception.ProcessFailedException]: Process `SigPA_LowConfidence` terminated with an error exit status (1)
+Jul-28 10:49:03.907 [TaskFinalizer-4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'SigPA_Extracted'
 
 Caused by:
   Process `SigPA_Extracted` terminated with an error exit status (1)
@@ -119,10 +137,10 @@ Command output:
 
 Command error:
   mkdir -p failed for path /nfs/users/nfs_a/ar39/.config/matplotlib: [Errno 30] Read-only file system: '/nfs'
-  Matplotlib created a temporary cache directory at /tmp/matplotlib-ji6sm12b because there was an issue with the default path (/nfs/users/nfs_a/ar39/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+  Matplotlib created a temporary cache directory at /tmp/matplotlib-mqu2i8aj because there was an issue with the default path (/nfs/users/nfs_a/ar39/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
   Traceback (most recent call last):
     File "/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin/SigProfilerAssignment_wrapper.py", line 27, in <module>
-      sys.exit(main(args))    
+      sys.exit(main(args))
                ^^^^^^^^^^
     File "/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/bin/SigProfilerAssignment_wrapper.py", line 23, in main
       sigPA_decompose(args.mutational_matrix, args.deNovoSignatures_matrix)
@@ -143,19 +161,19 @@ Command error:
   ValueError: cannot insert MutationType, already exists
 
 Work dir:
-  /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/a9/0cbe64beb827421c9f9ac49d213d48
+  /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work/b7/447cf60017bf7556e67150c7842af7
 
 Container:
   /lustre/scratch125/casm/teams/team267/projects/DockerImages/sigprofilerassignment_amd64_0.0.1.sif
 
-Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
-Jul-25 10:56:07.833 [main] DEBUG nextflow.Session - Session await > all processes finished
-Jul-25 10:56:07.834 [TaskFinalizer-4] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
-Jul-25 10:56:07.848 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf) - terminating tasks monitor poll loop
-Jul-25 10:56:07.849 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jul-25 10:56:07.851 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
-Jul-25 10:56:07.852 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
-Jul-25 10:56:07.866 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=2; ignoredCount=0; cachedCount=1; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=15s; failedDuration=29.9s; cachedDuration=10h 18m 22s;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=24 GB; ]
-Jul-25 10:56:08.065 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Jul-25 10:56:08.083 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-Jul-25 10:56:08.083 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Jul-28 10:49:03.912 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-28 10:49:03.913 [TaskFinalizer-4] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jul-28 10:49:03.928 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf) - terminating tasks monitor poll loop
+Jul-28 10:49:03.929 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-28 10:49:03.933 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-28 10:49:03.934 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-28 10:49:03.945 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=3; failedCount=2; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=11h 28m 43s; failedDuration=30s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=20; peakMemory=50 GB; ]
+Jul-28 10:49:04.147 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-28 10:49:04.165 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-28 10:49:04.165 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
