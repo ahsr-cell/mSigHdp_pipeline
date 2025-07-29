@@ -7,7 +7,7 @@ import argparse
 import sys
 
 def get_arguments():
-    parser = argparse.ArgumentParser(description='')
+    parser = argparse.ArgumentParser(description='Get user defined SigProfilerAssignment inputs/options')
     parser.add_argument('--mutational_matrix', required = True, 
                         help="")
     parser.add_argument('--deNovoSignatures_matrix', required = True,

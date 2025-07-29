@@ -239,15 +239,32 @@ mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
   
 mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
   
-colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
+#colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
   
 write.table(mSigHdp_Extracted_Signatures, file = paste0(u.work.dir,"/mSigHdp_deNovoSignatures.txt"), sep = "\t",
-                row.names = TRUE, col.names = TRUE)
+                quote = FALSE, row.names = FALSE, col.names = TRUE)
 
 mSigHdp_SigPA_ExtractedSigs <- mSigHdp_Extracted_Signatures
 
-colnames(mSigHdp_SigPA_ExtractedSigs) = c('MutationType', paste0('SBS96', LETTERS[1:ncol(mSigHdp_SigPA_ExtractedSigs) - 1]))
+colnames(mSigHdp_SigPA_ExtractedSigs) = c('MutationType', paste0(mut_context, LETTERS[1:ncol(mSigHdp_SigPA_ExtractedSigs) - 1]))
 
-write.table(mSigHdp_SigPA_ExtractedSigs, file = paste0(u.work.dir,"/mSigHdp_deNovoSigs_sigPADecomp.txt"), quote = F, row.names = F, sep = '\t')
+write.table(mSigHdp_SigPA_ExtractedSigs, file = paste0(u.work.dir,"/mSigHdp_deNovoSigs_sigPADecomp.txt"), 
+                quote = FALSE, row.names = FALSE, sep = '\t')
+
+lowconfsigs_path <- paste0(u.work.dir,"/low.confidence.signatures.csv")
+if (file.exists(lowconfsigs_path)) {
+  mSigHdp_LowConf_Signatures <- read.csv(file = paste0(u.work.dir,"/low.confidence.signatures.csv"), 
+                                           header = TRUE)
+                                        
+  mSigHdp_LowConf_Signatures$MutationTypes <- rownames(mutation_types)
+  
+  mSigHdp_LowConf_Signatures <- mSigHdp_LowConf_Signatures %>% select(MutationTypes, everything())
+  
+  #colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
+  
+  write.table(mSigHdp_LowConf_Signatures, file = paste0(u.work.dir,"/mSigHdp_lowConfSignatures.txt"), sep = "\t",
+                quote = FALSE, row.names = FALSE, col.names = TRUE)
+
+}
 
 message(paste0("mSigHdp run successfully executed. Output files (including mSigHdp_deNovoSignatures.txt) can be found in specified directory: ", u.work.dir))

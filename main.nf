@@ -6,7 +6,7 @@ include { mSigHdp } from './workflows/mSigHdp.nf'
 include { SigProfilerPlotting as SigPlt_Extracted } from './workflows/SigProfilerPlotting.nf'
 include { SigProfilerPlotting as SigPlt_LowConfidence } from './workflows/SigProfilerPlotting.nf'
 include { SigProfilerAssignment as SigPA_Extracted } from './workflows/SigProfilerAssignment.nf'
-include { SigProfilerAssignment as SigPA_LowConfidence } from './workflows/SigProfilerAssignment.nf'
+//include { SigProfilerAssignment as SigPA_LowConfidence } from './workflows/SigProfilerAssignment.nf'
 
 //
 // WORKFLOW: Run main analysis pipeline depending on user inputs
@@ -48,11 +48,11 @@ workflow {
                     mSigHdp.out.deNovo_lowconfsigs,
                     params.mutational_context
                 )
-                SigPA_LowConfidence(
-                    mSigHdp.out.deNovo_lowconfsigs,
-                    params.mutational_matrix,
-                    params.outdir
-                )
+//                SigPA_LowConfidence(
+//                    mSigHdp.out.deNovo_lowconfsigs,
+//                    params.mutational_matrix,
+//                    params.outdir
+//                )
             }
         }
         else {
@@ -97,13 +97,13 @@ workflow {
                 params.mutational_matrix,
                 params.outdir
             )
-            if (mSigHdp.out.deNovo_lowconfsigs != null){
-                SigPA_LowConfidence(
-                    mSigHdp.out.deNovo_lowconfsigs,
-                    params.mutational_matrix,
-                    params.outdir
-                )
-            }
+//            if (mSigHdp.out.deNovo_lowconfsigs != null){
+//                SigPA_LowConfidence(
+//                    mSigHdp.out.deNovo_lowconfsigs,
+//                    params.mutational_matrix,
+//                    params.outdir
+//                )
+//            }
         }
         mSigHdp(
                 params.hierarchy_matrix,

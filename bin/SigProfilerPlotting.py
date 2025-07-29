@@ -5,7 +5,7 @@ import argparse
 import sys
 
 def get_arguments():
-    parser = argparse.ArgumentParser(description = 'Get user defined SigProfilerPlotting options')
+    parser = argparse.ArgumentParser(description = 'Get user defined SigProfilerPlotting inputs/options')
     parser.add_argument('--mutational_context', required = True, default = "SBS96",
                         help = 'Specify context of mutational matrix; options are SBS96 (default), SBS288, SBS1536, DBS78, or ID83.')
     parser.add_argument('--deNovoSignatures_matrix', required = True, 
