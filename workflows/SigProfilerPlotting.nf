@@ -11,6 +11,8 @@ process SigProfilerPlotting {
 
     script:
     """
-    SigProfilerPlotting.py --mutational_context ${mutational_context} --deNovoSignatures_matrix ${deNovoSignatures_matrix}
+    rm -rf Signature_Spectra
+    mkdir Signature_Spectra
+    SigProfilerPlotting.py --mutational_context ${mutational_context} --deNovoSignatures_matrix ${deNovoSignatures_matrix} --output_directory Signature_Spectra/
     """
 }

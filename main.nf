@@ -40,8 +40,7 @@ workflow {
 
             SigPA_Extracted(
                 mSigHdp.out.deNovo_extsigs_sigPA,
-                params.mutational_matrix,
-                params.outdir
+                params.mutational_matrix
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
                 SigPlt_LowConfidence(
@@ -94,8 +93,7 @@ workflow {
             )
             SigPA_Extracted(
                 mSigHdp.out.deNovo_extsigs_sigPA,
-                params.mutational_matrix,
-                params.outdir
+                params.mutational_matrix
             )
 //            if (mSigHdp.out.deNovo_lowconfsigs != null){
 //                SigPA_LowConfidence(

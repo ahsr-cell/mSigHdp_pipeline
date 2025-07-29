@@ -235,9 +235,9 @@ if (!exists("hierarchy_matrix")) { #Flat run, therefore, multi.types option turn
 mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
                                            header = TRUE)
 
-mSigHdp_Extracted_Signatures$MutationTypes <- rownames(mutation_types)
+mSigHdp_Extracted_Signatures$MutationType <- rownames(mutation_types)
   
-mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationTypes, everything())
+mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationType, everything())
   
 #colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
   
@@ -256,9 +256,9 @@ if (file.exists(lowconfsigs_path)) {
   mSigHdp_LowConf_Signatures <- read.csv(file = paste0(u.work.dir,"/low.confidence.signatures.csv"), 
                                            header = TRUE)
                                         
-  mSigHdp_LowConf_Signatures$MutationTypes <- rownames(mutation_types)
+  mSigHdp_LowConf_Signatures$MutationType <- rownames(mutation_types)
   
-  mSigHdp_LowConf_Signatures <- mSigHdp_LowConf_Signatures %>% select(MutationTypes, everything())
+  mSigHdp_LowConf_Signatures <- mSigHdp_LowConf_Signatures %>% select(MutationType, everything())
   
   #colnames(mSigHdp_Extracted_Signatures) = c('MutationType', paste0(u.mc,"_", LETTERS[1:ncol(mSigHdp_Extracted_Signatures) - 1]))
   

@@ -17,8 +17,8 @@ def get_arguments():
     return parser
 
 def sigPA_decompose(mutational_matrix, deNovoSignatures_matrix,output_directory):
-    output = "SigProfilerDecomposition" 
-    Analyze.decompose_fit(mutational_matrix, output, deNovoSignatures_matrix, genome_build="GRCh38",
+    
+    Analyze.decompose_fit(mutational_matrix, output_directory, deNovoSignatures_matrix, genome_build="GRCh38",
                            verbose=False, make_plots = True,
                            volume = Path(output_directory) / "pkl" 
                            )
