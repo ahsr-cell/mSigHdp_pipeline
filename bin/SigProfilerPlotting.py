@@ -16,9 +16,16 @@ def get_arguments():
     return parser
 
 def sigPlt_plotting(mutational_context, deNovoSignatures_matrix, output_directory):
+  
   print('Using SigProfilerPlotting to visualise mSigHdp results')
-  project = "SigProfilerPlots"
+  
   matrix_path = deNovoSignatures_matrix
+  
+  if "lowConf" in matrix_path: 
+    project = "LowConfidenceSignatures"
+    print("Low confidence signatures detected.") 
+  else: 
+     project = "deNovoSignatures"
 
   if mutational_context == 'SBS96' or mutational_context == 'SBS288' or mutational_context == 'SBS1536': 
     if mutational_context == 'SBS96':
