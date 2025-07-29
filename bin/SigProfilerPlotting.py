@@ -27,15 +27,15 @@ def sigPlt_plotting(mutational_context, deNovoSignatures_matrix):
     
     if mutational_context == 'SBS1536':
       u_plot_type = '1536'    
-  sigPlt.plotSBS(matrix_path, output_path, project, u_plot_type, percentage=False)
+      sigPlt.plotSBS(matrix_path, output_path, project, u_plot_type, percentage=False)
     
   if mutational_context == 'DBS78':
       u_plot_type = '78'
-  sigPlt.plotDBS(matrix_path, output_path, project, u_plot_type, percentage=False)
+      sigPlt.plotDBS(matrix_path, output_path, project, u_plot_type, percentage=False)
   
   if mutational_context == 'ID83':
       u_plot_type = '83'
-  sigPlt.plotID(matrix_path, output_path, project, u_plot_type, percentage=False)
+      sigPlt.plotID(matrix_path, output_path, project, u_plot_type, percentage=False)
   
   print('SigProfilerPlotting completed. Output plots can be found in /Signature_Spectra')
   
