@@ -36,6 +36,7 @@ workflow {
             SigPlt_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
                 params.mutational_context
+                sig_type = "DeNovoSignatures"
             )
 
             SigPA_Extracted(
@@ -45,7 +46,8 @@ workflow {
             if (mSigHdp.out.deNovo_lowconfsigs != null){
                 SigPlt_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
-                    params.mutational_context
+                    params.mutational_context,
+                    sig_type = "LowConfidenceSignatures"
                 )
 //                SigPA_LowConfidence(
 //                    mSigHdp.out.deNovo_lowconfsigs,
@@ -68,12 +70,14 @@ workflow {
             )
             SigPlt_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
-                params.mutational_context
+                params.mutational_context,
+                sig_type = "DeNovoSignatures"
             )
             if (mSigHdp.out.deNovo_lowconfsigs != null){
                 SigPlt_LowConfidence(
                     mSigHdp.out.deNovo_lowconfsigs,
-                    params.mutational_context
+                    params.mutational_context,
+                    sig_type = "LowConfidenceSignatures"
                 )
             }
         }
