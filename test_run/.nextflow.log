@@ -1,107 +1,99 @@
-Jul-30 11:29:15.079 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf --hierarchy_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_Manuscript_sample_key.csv --hierarchy_parameter sample_type --mutational_context SBS96 --analysis_type analysis --burnin_iterations 100 --burnin_multiplier 10 --posterior 10 --posterior_iterations 10 --mutational_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_GEC_Manuscript_Subset_v1.SBS96.txt --outdir /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/ -resume -profile singularity -c /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-30 11:29:15.222 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.4
-Jul-30 11:29:15.245 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/nfs/users/nfs_a/ar39/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.3,nf-wave@1.12.1
-Jul-30 11:29:15.271 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-30 11:29:15.273 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-30 11:29:15.276 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jul-30 11:29:15.290 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-30 11:29:15.321 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
-Jul-30 11:29:15.327 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-30 11:29:15.329 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
-Jul-30 11:29:15.330 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
-Jul-30 11:29:15.372 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /nfs/users/nfs_a/ar39/.nextflow/secrets/store.json
-Jul-30 11:29:15.376 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6ecd665] - activable => nextflow.secret.LocalSecretsProvider@6ecd665
-Jul-30 11:29:15.400 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
-Jul-30 11:29:16.081 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
-Jul-30 11:29:16.334 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, test, charliecloud, apptainer, singularity, arm, wave, test_full, docker, podman]
-Jul-30 11:29:16.378 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jul-30 11:29:16.394 [main] DEBUG nextflow.cli.CmdRun - Launching `/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf` [sad_swanson] DSL2 - revision: 8ba5a17bb5
-Jul-30 11:29:16.395 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jul-30 11:29:16.396 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jul-30 11:29:16.444 [main] DEBUG nextflow.Session - Session UUID: a589bb80-f31e-4ebe-8505-6e96334aa8a8
-Jul-30 11:29:16.445 [main] DEBUG nextflow.Session - Run name: sad_swanson
-Jul-30 11:29:16.445 [main] DEBUG nextflow.Session - Executor pool size: 8
-Jul-30 11:29:16.453 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jul-30 11:29:16.459 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-30 11:29:16.492 [main] DEBUG nextflow.cli.CmdRun - 
+Jul-30 15:33:15.278 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf --hierarchy_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_Manuscript_sample_key.csv --hierarchy_parameter sample_type --mutational_context SBS96 --analysis_type analysis --plotting false --burnin_iterations 10 --burnin_multiplier 10 --posterior 10 --posterior_iterations 10 --mutational_matrix /lustre/scratch125/casm/teams/team267/users/ar39/0_Projects/0_mSigHdp/0_memorytests/0_data/1_Testing/EAC_GEC_Manuscript_Subset_v1.SBS96.txt --outdir /lustre/scratch125/casm/teams/team267/projects/Pipelines/1_tests/ -resume -profile singularity -c /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-30 15:33:15.487 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.4
+Jul-30 15:33:15.548 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/nfs/users/nfs_a/ar39/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.3,nf-wave@1.12.1
+Jul-30 15:33:15.594 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-30 15:33:15.596 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-30 15:33:15.601 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-30 15:33:15.625 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-30 15:33:15.685 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
+Jul-30 15:33:15.694 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-30 15:33:15.697 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/nextflow.config
+Jul-30 15:33:15.698 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
+Jul-30 15:33:15.755 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /nfs/users/nfs_a/ar39/.nextflow/secrets/store.json
+Jul-30 15:33:15.762 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@585c13de] - activable => nextflow.secret.LocalSecretsProvider@585c13de
+Jul-30 15:33:15.785 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-30 15:33:16.775 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Jul-30 15:33:17.020 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, test, charliecloud, apptainer, singularity, arm, wave, test_full, docker, podman]
+Jul-30 15:33:17.085 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-30 15:33:17.112 [main] DEBUG nextflow.cli.CmdRun - Launching `/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf` [awesome_mcclintock] DSL2 - revision: b38b23f6bf
+Jul-30 15:33:17.114 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-30 15:33:17.114 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-30 15:33:17.204 [main] DEBUG nextflow.Session - Session UUID: a589bb80-f31e-4ebe-8505-6e96334aa8a8
+Jul-30 15:33:17.205 [main] DEBUG nextflow.Session - Run name: awesome_mcclintock
+Jul-30 15:33:17.205 [main] DEBUG nextflow.Session - Executor pool size: 20
+Jul-30 15:33:17.220 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-30 15:33:17.227 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=60; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-30 15:33:17.274 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.04.4 build 5950
   Created: 16-06-2025 14:23 UTC (15:23 BST)
   System: Linux 5.15.0-141-generic
   Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.8.1+1
   Encoding: UTF-8 (UTF-8)
-  Process: 2606324@node-13-24 [10.160.64.33]
-  CPUs: 8 - Mem: 2 TB (531.3 GB) - Swap: 67.4 GB (67.2 GB)
-Jul-30 11:29:16.562 [main] DEBUG nextflow.Session - Work-dir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work [lustre]
-Jul-30 11:29:16.598 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jul-30 11:29:16.608 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jul-30 11:29:16.613 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Jul-30 11:29:16.639 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jul-30 11:29:16.649 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
-Jul-30 11:29:16.746 [main] DEBUG nextflow.Session - Session start
-Jul-30 11:29:16.901 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-Jul-30 11:29:16.910 [main] ERROR nextflow.cli.Launcher - Script compilation error
-- file : /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
-- cause: Unexpected input: '{' @ line 15, column 10.
-   workflow {
-            ^
-
-1 error
-
-NOTE: If this is the beginning of a process or workflow, there may be a syntax error in the body, such as a missing or extra comma, for which a more specific error message could not be produced.
-nextflow.exception.ScriptCompilationException: Script compilation error
-- file : /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
-- cause: Unexpected input: '{' @ line 15, column 10.
-   workflow {
-            ^
-
-1 error
-
-NOTE: If this is the beginning of a process or workflow, there may be a syntax error in the body, such as a missing or extra comma, for which a more specific error message could not be produced.
-	at nextflow.script.parser.v1.ScriptLoaderV1.parse0(ScriptLoaderV1.groovy:204)
-	at nextflow.script.parser.v1.ScriptLoaderV1.parse(ScriptLoaderV1.groovy:215)
-	at nextflow.script.parser.v1.ScriptLoaderV1.parse(ScriptLoaderV1.groovy)
-	at nextflow.script.ScriptRunner.parseScript(ScriptRunner.groovy:232)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:137)
+  Process: 2722625@node-12-1-3 [10.160.12.34]
+  CPUs: 20 - Mem: 754.5 GB (356.9 GB) - Swap: 67.5 GB (67.4 GB)
+Jul-30 15:33:17.349 [main] DEBUG nextflow.Session - Work-dir: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/test_run/work [lustre]
+Jul-30 15:33:17.398 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-30 15:33:17.415 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-30 15:33:17.422 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-30 15:33:17.461 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-30 15:33:17.487 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 21; maxThreads: 1000
+Jul-30 15:33:17.645 [main] DEBUG nextflow.Session - Session start
+Jul-30 15:33:17.906 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-30 15:33:18.201 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:mSigHdp` matches process mSigHdp
+Jul-30 15:33:18.224 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-30 15:33:18.225 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-30 15:33:18.235 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Jul-30 15:33:18.241 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 4000; pollInterval: 5s; dumpInterval: 5m 
+Jul-30 15:33:18.244 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
+Jul-30 15:33:18.245 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
+Jul-30 15:33:18.250 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Jul-30 15:33:18.253 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Jul-30 15:33:18.277 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'mSigHdp': maxForks=0; fair=false; array=0
+Jul-30 15:33:18.344 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:SigProfilerAssignment` matches process SigPA_Extracted
+Jul-30 15:33:18.346 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jul-30 15:33:18.346 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jul-30 15:33:18.348 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SigPA_Extracted': maxForks=0; fair=false; array=0
+Jul-30 15:33:18.352 [main] DEBUG nextflow.script.BindableDef - Bindable invocations=[mSigHdp]
+Jul-30 15:33:18.356 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_4f1cc4d519aea2dd: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerPlotting.nf
+  Script_a4d280b0ad266682: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/main.nf
+  Script_787b0947e7d71a89: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/SigProfilerAssignment.nf
+  Script_61a26298197ceff8: /lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/workflows/mSigHdp.nf
+Jul-30 15:33:18.356 [main] DEBUG nextflow.Session - Session aborted -- Cause: Process 'mSigHdp' has been already used -- If you need to reuse the same component, include it with a different name or include it in a different workflow context
+Jul-30 15:33:18.386 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf) - terminating tasks monitor poll loop
+Jul-30 15:33:18.386 [main] ERROR nextflow.cli.Launcher - @unknown
+nextflow.exception.DuplicateProcessInvocation: Process 'mSigHdp' has been already used -- If you need to reuse the same component, include it with a different name or include it in a different workflow context
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:46)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_a4d280b0ad266682$_runScript_closure1$_closure2.doCall(Script_a4d280b0ad266682:110)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:182)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:193)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy:246)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:246)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:139)
 	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
 	at nextflow.cli.Launcher.run(Launcher.groovy:513)
 	at nextflow.cli.Launcher.main(Launcher.groovy:673)
-Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
-Script_d9ffb867dfb27232: 15: Unexpected input: '{' @ line 15, column 10.
-   workflow {
-            ^
-
-1 error
-
-	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:292)
-	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:148)
-	at org.apache.groovy.parser.antlr4.AstBuilder.collectSyntaxError(AstBuilder.java:4730)
-	at org.apache.groovy.parser.antlr4.AstBuilder.access$100(AstBuilder.java:169)
-	at org.apache.groovy.parser.antlr4.AstBuilder$3.syntaxError(AstBuilder.java:4741)
-	at groovyjarjarantlr4.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:44)
-	at groovyjarjarantlr4.v4.runtime.Parser.notifyErrorListeners(Parser.java:543)
-	at groovyjarjarantlr4.v4.runtime.DefaultErrorStrategy.notifyErrorListeners(DefaultErrorStrategy.java:154)
-	at org.apache.groovy.parser.antlr4.internal.DescriptiveErrorStrategy.reportInputMismatch(DescriptiveErrorStrategy.java:104)
-	at org.apache.groovy.parser.antlr4.internal.DescriptiveErrorStrategy.recover(DescriptiveErrorStrategy.java:55)
-	at org.apache.groovy.parser.antlr4.internal.DescriptiveErrorStrategy.recoverInline(DescriptiveErrorStrategy.java:68)
-	at groovyjarjarantlr4.v4.runtime.Parser.match(Parser.java:213)
-	at org.apache.groovy.parser.antlr4.GroovyParser.compilationUnit(GroovyParser.java:368)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildCST(AstBuilder.java:243)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildCST(AstBuilder.java:221)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildAST(AstBuilder.java:262)
-	at org.apache.groovy.parser.antlr4.Antlr4ParserPlugin.buildAST(Antlr4ParserPlugin.java:58)
-	at org.codehaus.groovy.control.SourceUnit.buildAST(SourceUnit.java:256)
-	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
-	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:663)
-	at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:365)
-	at groovy.lang.GroovyClassLoader.lambda$parseClass$2(GroovyClassLoader.java:314)
-	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.compute(StampedCommonCache.java:163)
-	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.getAndPut(StampedCommonCache.java:154)
-	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:314)
-	at groovy.lang.GroovyShell.parseClass(GroovyShell.java:572)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:585)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:639)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:643)
-	at nextflow.script.parser.v1.ScriptLoaderV1.parse0(ScriptLoaderV1.groovy:183)
-	... 7 common frames omitted

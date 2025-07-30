@@ -25,7 +25,8 @@ nextflow run ${main_script} \
      --hierarchy_parameter ${hierarchy_parameter} \
      --mutational_context ${mutational_context} \
      --analysis_type analysis \
-     --burnin_iterations 100 \
+     --plotting false \
+     --burnin_iterations 10 \
      --burnin_multiplier 10 \
      --posterior 10 \
      --posterior_iterations 10 \

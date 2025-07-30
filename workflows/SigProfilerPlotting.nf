@@ -1,6 +1,6 @@
 process SigProfilerPlotting {
 
-    publishDir "${params.outdir}/Signature_Spectra/${sig_type}", mode: "copy"
+    publishDir "${params.outdir}/Signature_Spectra/", mode: "copy"
 
     input: 
     path deNovoSignatures_matrix
@@ -8,12 +8,13 @@ process SigProfilerPlotting {
     val sig_type
 
     output:
-    path Signature_Spectra
+    path "${sig_type}"
 
     script:
     """
     rm -rf Signature_Spectra
     mkdir Signature_Spectra
-    SigProfilerPlotting.py --deNovoSignatures_matrix ${deNovoSignatures_matrix} --mutational_context ${mutational_context} --output_directory ${Signature_Spectra}
+
+    SigProfilerPlotting.py --deNovoSignatures_matrix ${deNovoSignatures_matrix} --mutational_context ${mutational_context} --output_directory "${sig_type}"
     """
 }
