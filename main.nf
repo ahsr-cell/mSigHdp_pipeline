@@ -106,8 +106,8 @@ workflow {
 //                    params.outdir
 //                )
 //            }
-        }
-        mSigHdp(
+        } else {
+            mSigHdp(
                 params.hierarchy_matrix,
                 params.hierarchy_parameter,
                 params.mutational_context, 
@@ -118,5 +118,6 @@ workflow {
                 params.posterior_iterations,
                 params.mutational_matrix
             )
+        }
     } 
 }

@@ -26,6 +26,7 @@ nextflow run ${main_script} \
      --mutational_context ${mutational_context} \
      --analysis_type analysis \
      --plotting false \
+     --decompose false \
      --burnin_iterations 10 \
      --burnin_multiplier 10 \
      --posterior 10 \
