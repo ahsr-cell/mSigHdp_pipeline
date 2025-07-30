@@ -35,7 +35,7 @@ workflow {
 
             SigPlt_Extracted(
                 mSigHdp.out.deNovo_extractedsigs,
-                params.mutational_context
+                params.mutational_context,
                 sig_type = "DeNovoSignatures"
             )
 
