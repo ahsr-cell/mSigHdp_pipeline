@@ -11,6 +11,20 @@ include { SigProfilerAssignment as SigPA_Extracted } from './workflows/SigProfil
 //
 // WORKFLOW: Run main analysis pipeline depending on user inputs
 //
+def file = new File(params.mutational_matrix)
+//file.eachLine { line ->
+//    def values = line.split(",")  // Use ',' as delimiter
+//}
+//println values
+//
+def matrix = file.readLines().collect { line ->
+    line.split(',') as List
+}
+
+// Print the matrix
+matrix.each { row ->
+    println row
+}
 
 workflow {
 

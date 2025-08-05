@@ -12,6 +12,7 @@ process SigProfilerPlotting {
 
     script:
     """
+    export MPLCONFIGDIR=${workDir}
     rm -rf Signature_Spectra
     mkdir Signature_Spectra
 
