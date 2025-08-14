@@ -1,4 +1,4 @@
-process mSigHdp {
+process mSigHdp_hierarchy {
     
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
@@ -21,6 +21,6 @@ process mSigHdp {
 
     script:
     """
-    Rscript --vanilla ${projectDir}/bin/mSigHdp.R -hierarchy ${hierarchy_matrix} -hp ${hierarchy_parameter} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
+    Rscript --vanilla ${projectDir}/bin/mSigHdp_hierarchy.R -hierarchy ${hierarchy_matrix} -hp ${hierarchy_parameter} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
     """
 }

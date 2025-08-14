@@ -100,8 +100,21 @@ mutation_types <- read.csv(file = mutation_types,
 if (ncol(mutation_types) == 1 ) {
   mutation_types <- read.table(mutation_matrix, header=T, sep = ",")
 }
-rownames(mutation_types) <- NULL
-mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
+
+if ("MutationType" %in% colnames(mutation_types)) {
+  mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
+}
+
+#if (ncol(mutation_types)!=nrow(mutation_types)) {
+#  if (ncol(mutation_types) == 96 | nrow(mutation_types) != 96 ) {
+#  message("Input mutation matrix detected with columns as mutation type. Conducting data wrangling to make compatible with mSigHdp pipeline.")
+#  mutation_types <- as.data.frame(t(mutation_types))
+#}
+#}
+
+#if (tibble::has_rownames(mutation_types)==TRUE) {
+#  trinuc_code <- rownames(mutation_types)
+#}
 
 ##Hierarchy matrix  
 if (exists("hierarchy_matrix")) {
@@ -143,7 +156,7 @@ if (exists("hierarchy_matrix")) {
       seedNumber = 123,
       K.guess = 5,
       out.dir = u.work.dir,
-      burnin = 1000,
+      burnin = 100,
       burnin.multiplier = 1,
       post.n = 5,
       post.space = 5,
@@ -184,58 +197,14 @@ if (exists("hierarchy_matrix")) {
   }
 }
 
-if (!exists("hierarchy_matrix")) { #Flat run, therefore, multi.types option turned to FALSE
-  if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.type == 'test' | u.analysis.type == 'Test'){
-    message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples off each posterior sampling chain with 5 iterations between each."))
-    results <- mSigHdp::RunHdpxParallel(
-      input.catalog = mutation_types,
-      seedNumber = 123,
-      K.guess = 5,
-      out.dir = u.work.dir,
-      burnin = 1000,
-      burnin.multiplier = 1,
-      post.n = 5,
-      post.space = 5,
-      num.child.process = 1,
-      CPU.cores = 1,
-      multi.types = FALSE, 
-      overwrite = TRUE,
-      high.confidence.prop = 0.9,  
-      gamma.alpha = 1,   
-      gamma.beta = 20,   
-      checkpoint = TRUE,   
-      verbose = TRUE
-    )
-    message(paste0("mSigHdp analysis complete. Preparing final output files."))
-  } else if (u.analysis.type == 'analysis' | u.analysis.type == 'Analysis') {
-    message(paste0("Executing mSigHdp with ", u.burnin, " burn-in iterations, using a ", u.burnin.multip, "x multiplier. Collecting ", u.post, " posterior samples off each posterior sampling chain. Collecting ", u.post.space, " iterations between each chain."))
-    results <- mSigHdp::RunHdpxParallel(
-      input.catalog        = mutation_types,
-      out.dir              = u.work.dir, 
-      num.child.process    = 20, 
-      CPU.cores            = 20, 
-      seedNumber           = 123,
-      K.guess              = 16,
-      burnin               = as.integer(u.burnin),
-      burnin.multiplier    = as.integer(u.burnin.multip),
-      post.n               = as.integer(u.post), 
-      post.space           = as.integer(u.post.space), 
-      multi.types          = FALSE, 
-      overwrite            = TRUE,
-      gamma.alpha          = 1,
-      gamma.beta           = 20, 
-      high.confidence.prop = 0.9,
-      checkpoint           = TRUE,
-      verbose              = FALSE
-      )
-      message(paste0("mSigHdp analysis complete. Preparing final output files."))
-    }
-}
-
 mSigHdp_Extracted_Signatures <- read.csv(file = paste0(u.work.dir,"/extracted.signatures.csv"), 
                                            header = TRUE)
 
-mSigHdp_Extracted_Signatures$MutationType <- rownames(mutation_types)
+if (tibble::has_rownames(mutation_types)==TRUE) {
+  mSigHdp_Extracted_Signatures$MutationType <- rownames(mutation_types)
+}
+
+#mSigHdp_Extracted_Signatures$MutationType <- rownames(mutation_types)
   
 mSigHdp_Extracted_Signatures <- mSigHdp_Extracted_Signatures %>% select(MutationType, everything())
   
@@ -252,11 +221,14 @@ write.table(mSigHdp_SigPA_ExtractedSigs, file = paste0(u.work.dir,"/mSigHdp_deNo
                 quote = FALSE, row.names = FALSE, sep = '\t')
 
 lowconfsigs_path <- paste0(u.work.dir,"/low.confidence.signatures.csv")
+
 if (file.exists(lowconfsigs_path)) {
   mSigHdp_LowConf_Signatures <- read.csv(file = paste0(u.work.dir,"/low.confidence.signatures.csv"), 
                                            header = TRUE)
                                         
-  mSigHdp_LowConf_Signatures$MutationType <- rownames(mutation_types)
+  if (tibble::has_rownames(mutation_types)==TRUE) {
+    mSigHdp_LowConf_Signatures$MutationType <- rownames(mutation_types)
+  }
   
   mSigHdp_LowConf_Signatures <- mSigHdp_LowConf_Signatures %>% select(MutationType, everything())
   
