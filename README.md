@@ -145,7 +145,7 @@ Normal tissue samples (max mutation burden 10,000)
 
 Cancer samples (max mutation burden 50,000)
 | Hierarchy      | Sample size      | Max memory required [Gb] | Time required [00 hours : 00 minutes : 00 seconds] |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
+| ----------- | ----------- | ----------- | ----------- |
 | Flat         | 25   | 16.44         | 03:02:05         |
 | Flat         | 50   | 36.55         | 05:24:18         |
 | Flat         | 100   | 58.97         | 09:23:48         |
