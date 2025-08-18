@@ -126,7 +126,7 @@ nextflow run ${main_script} \
      --analysis_type ${analysis_type} \
      --outdir ${outdir} \
      --plotting ${plotting} \
-     --decompose ${decompose} \
+     --decompose ${decompose} 
 ```
 
 ## Pipeline output
