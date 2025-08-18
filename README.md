@@ -131,7 +131,7 @@ nextflow run ${main_script} \
 
 ## Pipeline output
 
-For more details about the output files and reports, please refer to the [`output.md`](output.md) output documentation.
+For more details about the output files and reports, please refer to the [`output.md`](docs/output.md) output documentation.
 
 ## Credits
 
