@@ -6,7 +6,7 @@
 
 There are three main processes of the pipeline: mSigHdp, SigProfilerPlotting, and SigProfilerAssignment. 
 
-The pipeline executes all three processes (by default). mSigHdp runs first, and the results it generates (i.e., a matrix containing the *de novo* signatures) are subsequently fed to [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting) for signature spectra plotting and [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment) for a preliminary decomposition. Depending on user needs, SigProfilerPlotting and SigProfilerAssignment can be turned off. The pipeline is designed to be compatible with the mutation 
+The pipeline executes all three processes (by default). mSigHdp runs first, and the results it generates (i.e., a matrix containing the *de novo* signatures) are subsequently fed to [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting) for signature spectra plotting and [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment) for a preliminary decomposition. Depending on user needs, SigProfilerPlotting and SigProfilerAssignment can be turned off. The pipeline is designed to be compatible with the following mutation type classifications: SBS96, SBS288, SBS1536, DBS78, ID83. 
 
 
 ### mSigHdp
@@ -14,9 +14,9 @@ mSigHdp uses hierarchical Dirichlet processes to identify mutational signatures 
 
 The primary input of mSigHdp is a `mutational matrix` (specified via /path/to/mutation_matrix), with an expected format of one row per mutation type (e.g., the 96 SBS, A[C>A]A) and one column per sample. 
 
-mSigHdp has two run modes set by `analysis_type`, `analysis` and `testing`. 
+mSigHdp has two run modes (`analysis` and `testing`) set by `analysis_type`. 
 
-**Testing** is intended for initial runs (aka "is this working" scenarios). It is run with minimal settings (1 Gibbs sampling chain using one thread, running 100 burn-in iterations, collecting 5 posterior samples off of each chain with 5 iterations between each, to allow for a short execution time. As this run is for testing purposes, these settings cannot be changed. 
+**Testing** is intended for initial runs (aka "is this working" scenarios). It is run with minimal settings (1 Gibbs sampling chain using one thread, running 100 burn-in iterations, collecting 5 posterior samples off of each chain with 5 iterations between each, to allow for a short execution time. As this is for testing purposes, these run settings cannot be changed. 
 
 **Analysis** is used for full-analysis runs, utilising 20 Gibbs sampling chains across 20 threads. These chains run 50,000 burn-in iterations (5,000 burn-in iterations with a 10x multiplier) and collect 250 posterior samples from each chain, with 100 iterations collected between each sample. These are standardised settings, optimised and conducted in the [Cancer Grand Challenges Mutographs project](https://www.cancergrandchallenges.org/mutographs). Users can change these settings by specifying `--burnin_iterations`, `--burnin_multiplier`, `--posterior`, and `--posterior_iterations`.
 
@@ -78,7 +78,8 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
 ```
 
 ### Sanger Users
-Sangers can run the pipeline using the following wrapper script. Refer to 
+Sangers can run the pipeline using the following wrapper script:
+
 ```
 #! /usr/bin/env bash
 
@@ -88,7 +89,7 @@ Sangers can run the pipeline using the following wrapper script. Refer to
 #BSUB -u USER@sanger.ac.uk
 #BSUB -q week #set according to sample type and time requirements
 #BSUB -n 20 #if testing (e.g., analysis_type=test), set to 1; otherwise, leave at 20
-#BSUB -M50000 #set according to sample type and memory requirements
+#BSUB -M50000 #set according to sample type and memory requirements*
 #BSUB -R "select[mem>50000] rusage[mem=50000]" #set according to sample type and memory requirements
 
 #Change these options according to run requirements
@@ -128,6 +129,29 @@ nextflow run ${main_script} \
      --plotting ${plotting} \
      --decompose ${decompose} 
 ```
+*Note - The pipeline resource (i.e., memory and time) requirements varies throughout the different processes. mSigHdp is the most memory and time intensive process and therefore the amount of resources requested from HPCs (for Sanger users. LSF) should be requested to ensure mSigHdp successfully completes. In other words, if mSigHdp requires 25Gb memory to successfully run, is recommended to request 27-30 Gb memory (25Gb + a recommended +10% additional resources requested to err on the cautious side). 
+
+The following tables have been generated (through empirical testing, using mSigHdp (50k burn-in iterations, 250 posterior samplings, 100 iterations between each chain) on synthetic datasets of increasing sample size) as a guide for Sanger users (submitting their job to the LSF queue):
+
+Normal tissue samples (max mutation burden 10,000)
+| Hierarchy      | Sample size      | Max memory required [Gb] | Time required [00 hours : 00 minutes : 00 seconds] |
+| ----------- | ----------- | ----------- | ----------- |
+| Flat         | 25   | 6.20         | 00:18:09         |
+| Flat         | 50   | 7.85         | 00:42:18         |
+| Flat         | 100   | 11.28         | 01:19:10         |
+| Flat         | 250   | 26.40         | 02:52:53         |
+| Flat         | 500   | 47.23         | 05:59:36         |
+| Flat         | 1000   | 103.00         | 13:18:21         |
+
+Cancer samples (max mutation burden 50,000)
+| Hierarchy      | Sample size      | Max memory required [Gb] | Time required [00 hours : 00 minutes : 00 seconds] |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Flat         | 25   | 16.44         | 03:02:05         |
+| Flat         | 50   | 36.55         | 05:24:18         |
+| Flat         | 100   | 58.97         | 09:23:48         |
+| Flat         | 250   | 160.56         | 22:21:59         |
+| Flat         | 500   | 287.30         | 47:56:14         |
+| Flat         | 1000   | 621.58         | 82:49:12         |
 
 ## Pipeline output
 
