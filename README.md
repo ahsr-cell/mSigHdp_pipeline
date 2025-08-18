@@ -6,7 +6,7 @@
 
 There are three main processes of the pipeline: mSigHdp, SigProfilerPlotting, and SigProfilerAssignment. 
 
-The pipeline executes all three processes (by default). mSigHdp runs first and the results of which (i.e., a matrix containing the *de novo* signatures) are subsequently fed to [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting) for signature spectra plotting and [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment) for a preliminary decomposition. Depending on user needs, SigProfilerPlotting and SigProfilerAssignment can be turned off. 
+The pipeline executes all three processes (by default). mSigHdp runs first, and the results it generates (i.e., a matrix containing the *de novo* signatures) are subsequently fed to [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting) for signature spectra plotting and [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment) for a preliminary decomposition. Depending on user needs, SigProfilerPlotting and SigProfilerAssignment can be turned off. The pipeline is designed to be compatible with the mutation 
 
 
 ### mSigHdp
@@ -14,11 +14,11 @@ mSigHdp uses hierarchical Dirichlet processes to identify mutational signatures 
 
 The primary input of mSigHdp is a `mutational matrix` (specified via /path/to/mutation_matrix), with an expected format of one row per mutation type (e.g., the 96 SBS, A[C>A]A) and one column per sample. 
 
-mSigHdp has two run modes, set by `analysis_type`: `analysis` and `testing`. 
+mSigHdp has two run modes set by `analysis_type`, `analysis` and `testing`. 
 
 **Testing** is intended for initial runs (aka "is this working" scenarios). It is run with minimal settings (1 Gibbs sampling chain using one thread, running 100 burn-in iterations, collecting 5 posterior samples off of each chain with 5 iterations between each, to allow for a short execution time. As this run is for testing purposes, these settings cannot be changed. 
 
-**Analysis** is used for full-analysis runs, utilising 20 Gibbs sampling chains across 20 threads. These chains run 50,000 burn-in iterations (5,000 burn-in iterations with a 10x multiplier) and collect 250 posterior samples from each chain, with 100 iterations collected between each sample. Users can change these settings by specifying `--burnin_iterations`, `--burnin_multiplier`, `--posterior`, and `--posterior_iterations`.
+**Analysis** is used for full-analysis runs, utilising 20 Gibbs sampling chains across 20 threads. These chains run 50,000 burn-in iterations (5,000 burn-in iterations with a 10x multiplier) and collect 250 posterior samples from each chain, with 100 iterations collected between each sample. These are standardised settings, optimised and conducted in the [Cancer Grand Challenges Mutographs project](https://www.cancergrandchallenges.org/mutographs). Users can change these settings by specifying `--burnin_iterations`, `--burnin_multiplier`, `--posterior`, and `--posterior_iterations`.
 
 mSigHdp can be run with **hierarchy** (setting `hierarchy = true`, specifying the hierarchy table via `--hierarchy_matrix /path/to/hierarchy_matrix`, and specifying the hierarchy parameter by `--hierarchy_parameter`) or **no hierarchy** (setting `hierarchy=false`).
 
@@ -50,10 +50,10 @@ Clone this repository via
 
 | Input      | Description |
 | ----------- | ----------- |
-| `mutation_matrix`      | Required input file, provided as a tab-delimited file (.tsv). The expected format is a matrix with one row per mutation type and one column per sample. See /docs/example_data/example_mutation_matrix.tsv for an example.        |
+| `mutation_matrix`      | Required input file, provided as a tab-delimited file (.tsv). The expected format is a matrix with one row per mutation type and one column per sample.  Include the mutation types under a column labelled as 'mutation'. See [/docs/example_data/example_mutation_matrix.tsv]() for an example.        |
 | `hierarchy`   | Required value, provided as a string. Options are <`true` or `false`>         |
-| `hierarchy_matrix`   | Optional input file, provided if `hierarchy = true`. Expected . See /docs/example_data/example_hierarchy_matrix.tsv for an example.         |
-| `hierarchy_parameter`   | Optional value, provided as a string if `hierarchy = true`. This should be formatted exactly as the column name specifying hierarchy in the input hierarchy_matrix. E.g., if a user provided /docs/example_data/example_hierarchy_matrix.tsv, `hierarchy_parameter` would be `hierarchy_parameter=sample_type`             |
+| `hierarchy_matrix`   | Optional input file, provided if `hierarchy = true`. The expected format is a matrix with one column per sample ID (matching the input mutation matrix) and one column specifying hierarchy groupings. See [/docs/example_data/example_hierarchy_matrix.tsv]() for an example.         |
+| `hierarchy_parameter`   | Optional value, provided as a string if `hierarchy = true`. This should be formatted exactly as the column name specifying hierarchy groupings in the input hierarchy_matrix. E.g., if a user provided /docs/example_data/example_hierarchy_matrix.tsv, `hierarchy_parameter` would be `hierarchy_parameter=sample_type`             |
 | `analysis_type`   | Required value, provided as a string. Options are <`analysis` or `testing`>, default is `analysis`         |
 | `mutational_context`   | Required value, provided as a string. Options are <`SBS96`, `SBS288`, `SBS1536`, `DBS78`, `ID83`>, default is `SBS96`         |
 | `plotting`   | Required value, provided as a string. Options are <`true` or `false`>, default is `true`         |
@@ -62,6 +62,7 @@ Clone this repository via
 
 The pipeline can be run using:
 
+```
 nextflow run /path/to/mSigHdp_pipeline/main.nf \
      -profile <docker/singularity/.../institute> \
      -c /path/to/config_file \
@@ -73,8 +74,8 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
      --analysis_type <analysis/testing> \
      --outdir /path/to/outdir/ \
      --plotting <true/false> \
-     --decompose <true/false> \
-
+     --decompose <true/false> 
+```
 
 ### Sanger Users
 Sangers can run the pipeline using the following wrapper script. Refer to 
@@ -147,12 +148,3 @@ Please feel free to contribute by either creating a pull request or create a new
 ## Citations
 
 An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
-
-
-
-
-
-
-
-
-
