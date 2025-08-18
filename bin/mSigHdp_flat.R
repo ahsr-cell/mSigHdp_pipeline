@@ -124,7 +124,7 @@ message(paste0("Creating output subdirectory for run"))
   }
 
 if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.type == 'test' | u.analysis.type == 'Test') {
-    message(paste0("Executing mSigHdp with test settings: 1000 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples off each posterior sampling chain with 5 iterations between each."))
+    message(paste0("Executing mSigHdp with test settings: 100 burn-in iterations with 1x burn-in multiplier, collecting 5 posterior samples off each posterior sampling chain with 5 iterations between each."))
     results <- mSigHdp::RunHdpxParallel(
       input.catalog = mutation_types,
       seedNumber = 123,
