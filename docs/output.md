@@ -12,7 +12,6 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
 - [deNovo_signatures](#deNovo_signatures) - mSigHdp run
 - [Signature_Spectra](#Signature_Spectra) - SigProfilerPlotting spectra
 - [SigProfilerDecomposition](#SigProfilerDecomposition) - SigProfilerAssignment decomposition
-- [Pipeline information](#pipeline-information) - Report metrics generated during the workflow execution
 
 ### mSigHdp output
 - `deNovo_signatures/`
