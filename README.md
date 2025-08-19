@@ -36,7 +36,7 @@ Setting `decompose` to `false` will turn off this functionality.
 
 ## Dependencies
 * Nextflow >= 24.04.2 required
-* Python, required packages: [SigProfilerPlotting](), [SigProfilerAssignment](),[argparse](https://docs.python.org/3/library/argparse.html), []()
+* Python, required packages: [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting), [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment), [argparse](https://docs.python.org/3/library/argparse.html), []()
 * R, required packages: [mSigHdp](https://github.com/steverozen/mSigHdp), [hdpx](https://github.com/steverozen/hdpx), [tidyverse](https://www.tidyverse.org/), [argparse](https://cran.r-project.org/web/packages/argparse/index.html)
 
 ## Installation

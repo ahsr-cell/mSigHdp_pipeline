@@ -4,7 +4,6 @@
 
 The directories listed below will be created in the results directory after the pipeline has finished. All paths are relative to the top-level results directory.
 
-
 ## Pipeline output overview
 
 The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes data using the following steps:
@@ -27,7 +26,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
   - `inferred.exposures.csv`
   - `low.confidence.signatures.csv`
   - `low.confidence.signatures.post.samp.number.csv`
-  - `mSigHdp_deNovoSignatures.txt`
+  - `mSigHdp_deNovoSignatures.txt`: formatted de novo signatures matrix
   - `mSigHdp_deNovoSigs_sigPADecomp.txt`
   - `mSigHdp_lowConfSignatures.txt`
 

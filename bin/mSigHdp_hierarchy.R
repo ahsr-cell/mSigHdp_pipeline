@@ -103,6 +103,8 @@ if (ncol(mutation_types) == 1 ) {
 
 if ("MutationType" %in% colnames(mutation_types)) {
   mutation_types <- tibble::column_to_rownames(mutation_types, "MutationType")
+} else {
+  stop(sprintf("Error: Input mutation matrix does not provide mutations under a column labelled as 'MutationType'. Please conduct the necessary data wrangling to ensure your mutation matrix is compatible with the pipeline. Stopping mSigHdp pipeline."))
 }
 
 #if (ncol(mutation_types)!=nrow(mutation_types)) {
