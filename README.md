@@ -27,12 +27,12 @@ The primary output of mSigHdp, found under the subdirectory `/deNovo_signatures/
 ### SigProfilerPlotting
 SigProfilerPlotting is used to plot the extracted *de novo* signature spectra. The pipeline will feed the extracted *de novo* signature table (i.e., `mSigHdp_deNovoSignatures.txt`) and the user-specified mutational context (done via `--mutational_context SBS96`, default is SBS96) to SigProfilerPlotting for plotting. The output of SigProfilerPlotting can be found under the directory `/Signature_Spectra/`, further broken down to subdirectories `/DeNovoSignatures/` and, if detected, `/LowConfidenceSignatures/`, both containing PDFs of their plots. 
 
-Setting `plotting` to `false` will turn off this functionality. 
+Setting `plotting` to `false` will turn this functionality off. 
 
 ### SigProfilerAssignment
 SigProfilerAssignment is used to decompose the extracted *de novo* signatures. The pipeline feeds the extracted *de novo* signature table and the previous, user-provided mutational matrix (specified via `mutational matrix`) to SigProfilerAssignment, which executes its `decompose_fit()` function. The output of SigProfilerAssignment is located under the directory `/SigProfilerDecomposition/`, containing subdirectories `/Activities/`, `/Signatures/`, and `/Solution_Stats/` and decomposition plots and mappings to COSMIC signatures (e.g., [COSMIC SBS](https://cancer.sanger.ac.uk/signatures/sbs/)).
 
-Setting `decompose` to `false` will turn off this functionality. 
+Setting `decompose` to `false` will turn this functionality off. 
 
 ## Dependencies
 * Nextflow >= 24.04.2 required
@@ -41,7 +41,6 @@ Setting `decompose` to `false` will turn off this functionality.
 
 ## Installation
 Clone this repository via
-
  > git clone git@github.com:ahsr-cell/mSigHdp_pipeline.git
 
 ## Usage
@@ -53,7 +52,7 @@ Clone this repository via
 | `mutation_matrix`      | Required input file, provided as a tab-delimited file (.tsv). The expected format is a matrix with one row per mutation type and one column per sample. Include the mutation types under a column labelled as 'MutationType'. It is highly recommended to generate mutation matrices via [SigProfilerMatrixGenerator](https://github.com/AlexandrovLab/SigProfilerMatrixGenerator). For an example. please see [example_mutation_matrix.tsv](https://github.com/ahsr-cell/mSigHdp_pipeline/blob/main/docs/example_input_data/example_mutation_matrix.tsv) for an example.        |
 | `hierarchy`   | Required value, provided as a string. Options are `true` or `false`         |
 | `hierarchy_matrix`   | Optional input file, provided if `hierarchy = true`. The expected format is a matrix with one column per sample ID (matching the input mutation matrix) and one column specifying hierarchy groupings. See [example_hierarchy_matrix.tsv](https://github.com/ahsr-cell/mSigHdp_pipeline/blob/main/docs/example_input_data/example_hierarchy_matrix.tsv) for an example.         |
-| `hierarchy_parameter`   | Optional value, provided as a string if `hierarchy = true`. This should be formatted exactly as the column name specifying hierarchy groupings in the input hierarchy_matrix. E.g., if a user provided [example_hierarchy_matrix.tsv](https://github.com/ahsr-cell/mSigHdp_pipeline/blob/main/docs/example_input_data/example_hierarchy_matrix.tsv), `hierarchy_parameter` would be `hierarchy_parameter=Grouping`             |
+| `hierarchy_parameter`   | Optional value, provided as a string if `hierarchy = true`. This should be formatted exactly as the column name specifying hierarchy groupings in the input hierarchy_matrix. E.g., if a user provided [example_hierarchy_matrix.tsv](https://github.com/ahsr-cell/mSigHdp_pipeline/blob/main/docs/example_input_data/example_hierarchy_matrix.tsv), `hierarchy_parameter` would be set as `hierarchy_parameter=Grouping`             |
 | `analysis_type`   | Required value, provided as a string. Options are `analysis` or `testing`, default is `analysis`         |
 | `mutational_context`   | Required value, provided as a string. Options are `SBS96`, `SBS288`, `SBS1536`, `DBS78`, `ID83`, default is `SBS96`         |
 | `plotting`   | Required value, provided as a string. Options are `true` or `false`, default is `true`         |
@@ -129,9 +128,9 @@ nextflow run ${main_script} \
      --plotting ${plotting} \
      --decompose ${decompose} 
 ```
-*Note - The pipeline resource (i.e., memory and time) requirements varies throughout the different processes. mSigHdp is the most memory and time intensive process and therefore the amount of resources requested from HPCs (for Sanger users. LSF) should be requested to ensure mSigHdp successfully completes. In other words, if mSigHdp requires 25Gb memory to successfully run, is recommended to request 27-30 Gb memory (25Gb + a recommended +10% additional resources requested to err on the cautious side). 
+*Note - The pipeline resource (i.e., memory and time) requirements varies throughout its processes. mSigHdp is the most memory and time intensive process and therefore the amount of resources requested from HPCs (for Sanger users, LSF) should be requested to ensure the mSigHdp module successfully runs. In other words, if mSigHdp requires 25Gb memory to successfully run, is recommended to request 27-30 Gb memory (25Gb + a recommended + ~10% additional resources requested to err on the cautious side). 
 
-The following tables have been generated (through empirical testing, using mSigHdp (50k burn-in iterations, 250 posterior samplings, 100 iterations between each chain) on synthetic datasets of increasing sample size) as a guide for Sanger users (submitting their job to the LSF queue):
+The following tables have been generated (through empirical testing, using mSigHdp run on analysis settings (i.e., 50,000 burn-in iterations, 250 posterior samplings, 100 iterations between each chain) on synthetic datasets of increasing sample size) as a guide for Sanger users (submitting their job to the LSF queue):
 
 #### Normal tissue samples (max mutation burden 10,000)
 | Hierarchy      | Sample size      | Max memory required [Gb] | Time required [00 hours : 00 minutes : 00 seconds] |
