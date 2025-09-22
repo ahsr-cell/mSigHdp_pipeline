@@ -25,6 +25,11 @@ workflow {
                 params.burnin_multiplier,
                 params.posterior,
                 params.posterior_iterations,
+                params.chains,
+                params.clusters,
+                params.alpha,
+                params.beta,
+                params.confidence,
                 params.mutational_matrix
             )
             if (params.plotting == true) {
@@ -73,6 +78,11 @@ workflow {
                 params.burnin_multiplier,
                 params.posterior,
                 params.posterior_iterations,
+                params.chains,
+                params.clusters,
+                params.alpha,
+                params.beta,
+                params.confidence,
                 params.mutational_matrix
             )
             if (params.plotting == true) {

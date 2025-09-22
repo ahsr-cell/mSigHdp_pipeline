@@ -11,6 +11,11 @@ process mSigHdp_hierarchy {
     val burnin_multiplier
     val posterior 
     val posterior_iterations
+    val chains
+    val clusters
+    val alpha
+    val beta
+    val confidence
     path mutational_matrix
 
     output:
@@ -21,6 +26,6 @@ process mSigHdp_hierarchy {
 
     script:
     """
-    Rscript --vanilla ${projectDir}/bin/mSigHdp_hierarchy.R -hierarchy ${hierarchy_matrix} -hp ${hierarchy_parameter} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} ${mutational_matrix}
+    Rscript --vanilla ${projectDir}/bin/mSigHdp_hierarchy.R -hierarchy ${hierarchy_matrix} -hp ${hierarchy_parameter} -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} -ch ${chains} -k ${clusters} -ga ${alpha} -gb ${beta} -h ${confidence} ${mutational_matrix}
     """
 }

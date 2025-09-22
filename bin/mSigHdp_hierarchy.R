@@ -25,12 +25,18 @@ parser$add_argument("-hp","--hierarchy_parameter", type = 'character', help = "S
 
 parser$add_argument("-a", "--analysis_type", type = "character", default = "Testing", help = "Specify type of analysis run. Options are [testing] or [analysis].", required=TRUE)
 
+parser$add_argument("-c", "--mutational_context", type = 'character', default = "SBS96", help = "Specify context of mutational matrix; options are SBS96 (default), SBS288, SBS1536, DBS78, or ID83.", required = TRUE)
+
+#mSigHdp analysis run options
 parser$add_argument("-b", "--burnin_iterations", type = 'double', default = "5000", help = "Specify number of burn-in iterations. Default set to 5000.", required=FALSE) 
 parser$add_argument("-x", "--burnin_multiplier", type = 'double', default = "10", help = "Specify burin-in iteration multiplier. Default set to 10.", required=FALSE) 
 parser$add_argument("-o", "--posterior", type = 'double', default = "250", help = "Specify number of posterior samples to collect off each posterior sampling chain. Default set to 250.", required=FALSE) 
 parser$add_argument("-i", "--posterior_iterations", type = 'double', default = "100", help = "Specify number of iterations collected between each posterior sampling chain. Default set to 100.", required=FALSE) 
-
-parser$add_argument("-c", "--mutational_context", type = 'character', default = "SBS96", help = "Specify context of mutational matrix; options are SBS96 (default), SBS288, SBS1536, DBS78, or ID83.", required = TRUE)
+parser$add_argument("-ch", "--chains", type='double', default="20", help = "Specify number of chains to run. Note that this is will also be fed to the number of CPUs as the number of chains must always equal the number of CPUs. Default set to 20.", required=FALSE)
+parser$add_argument("-k", "--clusters", type='double', default="16", help = "Specify number of clusters. Default set to 16.", required=FALSE)
+parser$add_argument("-ga", "--alpha", type='double', default="1", help = "Specify number of clusters. Default set to 1.", required=FALSE)
+parser$add_argument("-gb", "--beta", type='double', default="20", help = "Specify number of clusters. Default set to 20.", required=FALSE)
+parser$add_argument("-h", "--confidence", type='double', default="0.9", help = "Specify number of clusters. Default set to 0.9.", required=FALSE)
 
 #Parse arguments
 args <- parser$parse_args()
@@ -71,10 +77,25 @@ if (u.analysis.type == 'analysis') {
   if (!is.null("args$posterior_iterations")) {
     u.post.space <- args$posterior_iterations
   }
+  if (!is.null("args$clusters")) {
+    u.clusters <- args$clusters
+  }
+  if (!is.null("args$alpha")) {
+    u.alpha <- args$alpha
+  }
+  if (!is.null("args$beta")) {
+    u.beta <- args$beta
+  }
+  if (!is.null("args$confidence")) {
+    u.confidence <- args$confidence
+  }
+  if (!is.null("args$chains")) {
+    u.chains <- args$chains
+  }
 }
 
 if(u.analysis.type == 'Analysis' | u.analysis.type == 'analysis') {
-  message(paste("You have selected Analysis - please note that this is intended to be run on Lustre as it requires 20 CPUs."))
+  message(paste("You have selected Analysis - please note that this is intended to be run on Lustre as it requires 20 CPUs, unless specified otherwise via --chains."))
 }
 
 if (mut_context == 'SBS96' | mut_context == 'SBS288' | mut_context == 'SBS1536') {
@@ -98,6 +119,7 @@ mutation_types <- mutation_matrix_path
 mutation_types <- read.csv(file = mutation_types, 
                            header = TRUE, sep="\t")
 if (ncol(mutation_types) == 1 ) {
+  message("Incorrect input mutation matrix format, attempting comma-delimited import. \n")
   mutation_types <- read.table(mutation_matrix, header=T, sep = ",")
 }
 
@@ -179,19 +201,19 @@ if (exists("hierarchy_matrix")) {
   results <- mSigHdp::RunHdpxParallel(
     input.catalog        = mutation_types,
     out.dir              = u.work.dir, 
-    num.child.process    = 20, 
-    CPU.cores            = 20, 
+    num.child.process    = as.integeter(u.chains), 
+    CPU.cores            = as.integeter(u.chains),  
     seedNumber           = 123,
-    K.guess              = 16,
+    K.guess              = as.integer(u.clusters),
     burnin               = as.integer(u.burnin),
     burnin.multiplier    = as.integer(u.burnin.multip),
     post.n               = as.integer(u.post), 
     post.space           = as.integer(u.post.space), 
     multi.types          = TRUE, 
     overwrite            = TRUE,
-    gamma.alpha          = 1,
-    gamma.beta           = 20, 
-    high.confidence.prop = 0.9,
+    gamma.alpha          = as.integer(u.alpha), 
+    gamma.beta           = as.integer(u.beta), 
+    high.confidence.prop = as.integer(u.confidence),
     checkpoint           = TRUE,
     verbose              = FALSE
     )
