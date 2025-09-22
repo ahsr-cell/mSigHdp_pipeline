@@ -175,8 +175,8 @@ if (u.analysis.type == 'testing' | u.analysis.type == 'Testing' | u.analysis.typ
     results <- mSigHdp::RunHdpxParallel(
       input.catalog        = mutation_types,
       out.dir              = u.work.dir, 
-      num.child.process    = as.integeter(u.chains), 
-      CPU.cores            = as.integeter(u.chains), 
+      num.child.process    = as.integer(u.chains), 
+      CPU.cores            = as.integer(u.chains), 
       seedNumber           = 123,
       K.guess              = as.integer(u.clusters), 
       burnin               = as.integer(u.burnin),
