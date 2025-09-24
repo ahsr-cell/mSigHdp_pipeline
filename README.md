@@ -69,11 +69,33 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
      --hierarchy <true/false> \
      --hierarchy_matrix /path/to/hierarchy_key.tsv \
      --hierarchy_parameter <variable_used_for_hierarchy_as_the_column-name_in_hierarchy_key> \
-     --mutational_context <SBS96/SBS288/SBS1536/DBS78/ID83> \
+     --mutational_context <SBS96/SBS288/DBS78/ID83> \
      --analysis_type <analysis/testing> \
      --outdir /path/to/outdir/ \
      --plotting <true/false> \
      --decompose <true/false> 
+
+nextflow run /path/to/mSigHdp_pipeline/main.nf \
+     -profile <docker/singularity/.../institute> \
+     -c /path/to/config_file \
+     --mutational_matrix /path/to/mutation_matrix.tsv \
+     --mutational_context <SBS96/SBS288/DBS78/ID83> \
+     --analysis_type <analysis/testing> \
+     --burnin_iterations <desired_number_of_burnin_iterations> \
+     --burnin_multiplier <desired_burnin_multiplier> \
+     --posterior <desired_number_of_posterior_samples> \
+     --posterior_iterations <desired_number_of_posterior_iterations> \
+     --chains <desired_number_of_posterior_sampling_chains> \
+     --clusters <desired_number_of_initial_HDP_clusters> \
+     --alpha <desired_gamma.alpha_value> \
+     --beta <desired_gamma.beta_value> \
+     --confidence <desired_confidence_f> \
+     --outdir /path/to/outdir/ \
+     --plotting <true/false> \
+     --decompose <true/false> \
+     --hierarchy <true/false> \
+     --hierarchy_matrix /path/to/hierarchy_key.tsv \
+     --hierarchy_parameter <column-name_of_hierarchyparameter_hierarchy_key> 
 ```
 
 ### Sanger Users
@@ -86,29 +108,36 @@ Sangers can run the pipeline using the following wrapper script:
 #BSUB -o %J.out
 #BSUB -e %J.err
 #BSUB -u USER@sanger.ac.uk
-#BSUB -q week #set according to sample type and time requirements
-#BSUB -n 20 #if testing (e.g., analysis_type=test), set to 1; otherwise, leave at 20
-#BSUB -M50000 #set according to sample type and memory requirements*
-#BSUB -R "select[mem>50000] rusage[mem=50000]" #set according to sample type and memory requirements
+#BSUB -q week #set according time requirements for largest local running job
+#BSUB -n 1 #Single CPU node used for pipeline task submitter
+#BSUB -M5000 #set according memory requirements for for largest local running job
+#BSUB -R "select[mem>5000] rusage[mem=5000]" #set according to sample type and memory requirements
 
-#Change these options according to run requirements
-mutational_matrix=/path/to/input/mutation_matrix.tsv
+# Run inputs and options, change accordingly
+mutational_matrix=/path/to/mutation_matrix.tsv
 
-hierarchy=false #if running hierarchy (single-tier only), set to true
+mutational_context=SBS96 #options include SBS96, SBS288, DBS78, ID83 
+analysis_type=analysis #options include testing/analysis
+outdir=/path/to/desired/output_directory #set to location of output files
+plotting=true #set to false if just signature extraction
+decompose=true #set to false if just signature extraction
 
-hierarchy_matrix=/path/to/input/hierarchy_key.tsv #if running no hierarchy, delete/comment this line out 
-hierarchy_parameter=sample_type #set this equal to the column name of input hierarchy_key if running no hierarchy, delete/comment this line out
+hierarchy=false #if running hierarchy, set to true
+hierarchy_matrix=/path/to/input/hierarchy_matrix.tsv #if running no hierarchy, delete/comment this line out 
+hierarchy_parameter=sample_type #if running no hierarchy delete/comment this line out
 
-mutational_context=SBS96 #For SigProfilerPlotting, options include SBS96, SBS288, SBS1536, DBS78, ID83
+#mSigHdp analysis run options. If desired, change accordingly to your needs
+burnin_iterations=6000 
+burnin_multiplier=10
+posterior=300
+posterior_iterations=200
+chains=20
+clusters=20
+alpha=1
+beta=20
+confidence=0.9
 
-analysis_type=analysis #'testing' for test run, 'analysis' for full analysis run
-
-outdir=/path/to/desired/output/ #set to location of output files
-
-plotting=true #set to false if you do not want to plot extracted signature spectra
-
-decompose=true #set to false if you do not want to decompose extracted signatures 
-
+### Necessary for the pipeline - do not change
 module load cellgen/nextflow/25.04.4
 module load ISG/singularity/3.11.4
 config_file=/lustre/scratch125/casm/teams/team267/projects/Pipelines/mSigHdp_pipeline/conf/sanger_lsf.config
@@ -119,38 +148,24 @@ nextflow run ${main_script} \
      -profile ${profile} \
      -c ${config_file} \
      --mutational_matrix ${mutational_matrix} \
-     --hierarchy ${hierarchy} \
-     --hierarchy_matrix ${hierarchy_matrix} \
-     --hierarchy_parameter ${hierarchy_parameter} \
      --mutational_context ${mutational_context} \
      --analysis_type ${analysis_type} \
+     --burnin_iterations ${burnin_iterations} \
+     --burnin_multiplier ${burnin_multiplier} \
+     --posterior ${posterior} \
+     --posterior_iterations ${posterior_iterations} \
+     --chains ${chains} \
+     --clusters ${clusters} \
+     --alpha ${alpha} \
+     --beta ${beta} \
+     --confidence ${confidence} \
      --outdir ${outdir} \
      --plotting ${plotting} \
-     --decompose ${decompose} 
+     --decompose ${decompose} \
+     --hierarchy ${hierarchy} \
+     --hierarchy_matrix ${hierarchy_matrix} \
+     --hierarchy_parameter ${hierarchy_parameter} 
 ```
-*Note - The pipeline resource (i.e., memory and time) requirements varies throughout its processes. mSigHdp is the most memory and time intensive process and therefore the amount of resources requested from HPCs (for Sanger users, LSF) should be requested to ensure the mSigHdp module successfully runs. In other words, if mSigHdp requires 25Gb memory to successfully run, is recommended to request 27-30 Gb memory (25Gb + a recommended + ~10% additional resources requested to err on the cautious side). 
-
-The following tables have been generated (through empirical testing, using mSigHdp run on analysis settings (i.e., 50,000 burn-in iterations, 250 posterior samplings, 100 iterations between each chain) on synthetic datasets of increasing sample size) as a guide for Sanger users (submitting their job to the LSF queue):
-
-#### Normal tissue samples (max mutation burden 10,000)
-| Hierarchy      | Sample size      | Max memory required [Gb] | Time required [00 hours : 00 minutes : 00 seconds] |
-| ----------- | ----------- | ----------- | ----------- |
-| Flat         | 25   | 6.20         | 00:18:09         |
-| Flat         | 50   | 7.85         | 00:42:18         |
-| Flat         | 100   | 11.28         | 01:19:10         |
-| Flat         | 250   | 26.40         | 02:52:53         |
-| Flat         | 500   | 47.23         | 05:59:36         |
-| Flat         | 1000   | 103.00         | 13:18:21         |
-
-#### Cancer samples (max mutation burden 50,000)
-| Hierarchy      | Sample size      | Max memory required [Gb] | Time required [00 hours : 00 minutes : 00 seconds] |
-| ----------- | ----------- | ----------- | ----------- |
-| Flat         | 25   | 16.44         | 03:02:05         |
-| Flat         | 50   | 36.55         | 05:24:18         |
-| Flat         | 100   | 58.97         | 09:23:48         |
-| Flat         | 250   | 160.56         | 22:21:59         |
-| Flat         | 500   | 287.30         | 47:56:14         |
-| Flat         | 1000   | 621.58         | 82:49:12         |
 
 ## Pipeline output
 

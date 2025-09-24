@@ -3,6 +3,7 @@ process mSigHdp_hierarchy {
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
     input:
+    tuple val(Sample_number), val(Mutation_burden), val(Memory_required)
     path hierarchy_matrix
     val hierarchy_parameter
     val mutational_context

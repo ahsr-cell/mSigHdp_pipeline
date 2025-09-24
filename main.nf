@@ -2,6 +2,8 @@
 
 nextflow.enable.dsl=2
 
+include { MutMatrix_resourcereqs_hierarchy } from './modules/MutMatrix_resourcereqs_hierarchy.nf'
+include { MutMatrix_resourcereqs } from './modules/MutMatrix_resourcereqs.nf' 
 include { mSigHdp_hierarchy } from './modules/mSigHdp_hierarchy.nf'
 include { mSigHdp_flat } from './modules/mSigHdp_flat.nf'
 include { SigProfilerPlotting as SigPlt_Extracted } from './modules/SigProfilerPlotting.nf'
@@ -16,7 +18,27 @@ workflow {
     // WORKFLOW: Full suite of analysis: mSigHdp, SigProfilerPlotting, and SigProfilerAssignment
     //
     if (params.hierarchy == true) {
+        MutMatrix_resourcereqs_hierarchy(
+        params.mutational_matrix
+        params.hierarchy_matrix
+    )
+    memory_requirements_ch = MutMatrix_resourcereqs_hierarchy.out.memory_reqs_matrix
+                        .splitCsv( header: true )
+                        .map { row -> tuple( row.Sample_number, row.Mutation_burden, row.Memory_required )
+                        }
+    } else {
+        MutMatrix_resourcereqs(
+        params.mutational_matrix
+    )
+    memory_requirements_ch = MutMatrix_resourcereqs.out.memory_reqs_matrix
+                        .splitCsv( header: true )
+                        .map { row -> tuple( row.Sample_number, row.Mutation_burden, row.Memory_required )
+                        }
+    }
+
+    if (params.hierarchy == true) {
         mSigHdp_hierarchy(
+                memory_requirements_ch,
                 params.hierarchy_matrix,
                 params.hierarchy_parameter,
                 params.mutational_context, 
@@ -72,6 +94,7 @@ workflow {
             }
     } else {
         mSigHdp_flat(
+                memory_requirements_ch,
                 params.mutational_context, 
                 params.analysis_type,
                 params.burnin_iterations,

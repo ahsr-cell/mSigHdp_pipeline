@@ -3,6 +3,7 @@ process mSigHdp_flat {
     publishDir "${params.outdir}", mode: "copy", overwrite: true
 
     input:
+    tuple val(Sample_number), val(Mutation_burden), val(Memory_required)
     val mutational_context
     val analysis_type
     val burnin_iterations 
