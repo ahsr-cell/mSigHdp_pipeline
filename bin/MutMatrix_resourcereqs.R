@@ -48,14 +48,14 @@ if ("MutationType" %in% colnames(mutation_matrix)) {
 ### Count number of samples
 #Samples will be by row
 #calculate number of rows 
-sample_number <- nrow(mutation_matrix)
+sample_number <- (ncol(mutation_matrix))
 message(paste0("Input mutation matrix has ", sample_number," samples. \n"))
 
 ### Identify mutation burden
 #calculate row sums
 #sum row sums
 #divide by number of rows
-mutation_burden <- mean(rowSums(mutation_matrix))
+mutation_burden <- mean(colSums(mutation_matrix))
 message(paste0("Calculated mutation burden: ", round(mutation_burden, digits = 2),". \n"))
 
 ### Input into linear equations

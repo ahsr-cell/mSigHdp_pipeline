@@ -19,8 +19,9 @@ workflow {
     //
     if (params.hierarchy == true) {
         MutMatrix_resourcereqs_hierarchy(
-        params.mutational_matrix
-        params.hierarchy_matrix
+        params.mutational_matrix,
+        params.hierarchy_matrix,
+        params.hierarchy_parameter
     )
     memory_requirements_ch = MutMatrix_resourcereqs_hierarchy.out.memory_reqs_matrix
                         .splitCsv( header: true )
@@ -61,7 +62,7 @@ workflow {
                     params.mutational_context,
                     sig_type = "DeNovoSignatures"
                     )
-                    if (mSigHdp.out.deNovo_lowconfsigs != null) {
+                    if (mSigHdp_hierarchy.out.deNovo_lowconfsigs != null) {
                         SigPlt_LowConfidence(
                         mSigHdp_hierarchy.out.deNovo_lowconfsigs,
                         params.mutational_context,

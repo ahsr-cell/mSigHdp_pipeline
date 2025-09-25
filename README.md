@@ -89,7 +89,7 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
      --clusters <desired_number_of_initial_HDP_clusters> \
      --alpha <desired_gamma.alpha_value> \
      --beta <desired_gamma.beta_value> \
-     --confidence <desired_confidence_f> \
+     --confidence <desired_confidence_threshold> \
      --outdir /path/to/outdir/ \
      --plotting <true/false> \
      --decompose <true/false> \

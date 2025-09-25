@@ -15,7 +15,8 @@ options(stringsAsFactors = F )
 parser = ArgumentParser(prog = 'Input matrix matrix check and mSigHdp memory requirements generation', description = 'Mutation matrix validation and memory requirements generation.')
 #Command line arguments
 parser$add_argument("matrix_path", nargs = 1, help = "Specify path to input mutational matrix.") 
-parser$add_argument("matrix_path", nargs = 1, help = "Specify path to input hierarchy matrix.")
+parser$add_argument("-hierarchy","--hierarchy_matrix", type = 'character', help = "If available, specify path to hierarchy matrix.", required=FALSE)
+parser$add_argument("-hp","--hierarchy_parameter", type = 'character', help = "Specify primary hierarchy parameter as listed in input hierarchy matrix (e.g., column name). Used to identify column.", required=FALSE)
 #Parse arguments
 args <- parser$parse_args()
 
@@ -24,6 +25,15 @@ mutation_matrix_path <- args$matrix_path
 if(!exists("mutation_matrix_path")) {
   stop(sprintf("Mutation matrix not provided. Please specify by providing path at end of command; Use -h for further information."))
 }
+
+if (!is.null(args$hierarchy_matrix)) {
+  hierarchy_matrix <- args$hierarchy_matrix
+}
+
+if (!is.null("args$hierarchy_parameter")) {
+  hp <- args$hierarchy_parameter
+}
+
 
 message("Importing user datasets and conducting necessary data wrangling.")
 
@@ -45,17 +55,34 @@ if ("MutationType" %in% colnames(mutation_matrix)) {
   stop(sprintf("Error: Input mutation matrix does not provide mutations under a column labelled as 'MutationType'. Please conduct the necessary data wrangling to ensure your mutation matrix is compatible with the pipeline. Stopping mSigHdp pipeline."))
 }
 
+### Check input hierarchy table is correct format, listed hierarchy parameter is correct, and data wrangling occurs
+if (exists("hierarchy_matrix")) {
+  message(paste("Hierarchy matrix provided. Incorporating into mutational matrix."))
+  hierarchy_key <- read.csv(file = hierarchy_matrix)
+  if (ncol(hierarchy_key) == 1 ) {
+    hierarchy_key <- read.table(hierarchy_matrix, header=T, sep = "\t")
+  }
+  samples <- colnames(mutation_matrix)
+  hpi <- which(colnames(hierarchy_key)==hp)
+  hierarchy_key_vector <- as.vector(hierarchy_key[,hpi])
+  hierarchy_key_vector_colnames <- paste0(hierarchy_key_vector,"::",samples)
+  
+  colnames(mutation_matrix) = hierarchy_key_vector_colnames
+} else {
+  message(paste("No hierarchy matrix provided, please note that mSigHdp will run assuming no hierarchy."))
+}
+
 ### Count number of samples
 #Samples will be by row
 #calculate number of rows 
-sample_number <- nrow(mutation_matrix)
+sample_number <- ncol(mutation_matrix)
 message(paste0("Input mutation matrix has ", sample_number," samples. \n"))
 
 ### Identify mutation burden
 #calculate row sums
 #sum row sums
 #divide by number of rows
-mutation_burden <- mean(rowSums(mutation_matrix))
+mutation_burden <- mean(colSums(mutation_matrix))
 message(paste0("Calculated mutation burden: ", round(mutation_burden, digits = 2),". \n"))
 
 ### Input into linear equations
