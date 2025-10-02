@@ -32,6 +32,7 @@ parser$add_argument("-b", "--burnin_iterations", type = 'double', default = "500
 parser$add_argument("-x", "--burnin_multiplier", type = 'double', default = "10", help = "Specify burin-in iteration multiplier. Default set to 10.", required=FALSE) 
 parser$add_argument("-o", "--posterior", type = 'double', default = "250", help = "Specify number of posterior samples to collect off each posterior sampling chain. Default set to 250.", required=FALSE) 
 parser$add_argument("-i", "--posterior_iterations", type = 'double', default = "100", help = "Specify number of iterations collected between each posterior sampling chain. Default set to 100.", required=FALSE) 
+parser$add_argument("-cp", "--concentration_parameter", type = 'double', default = "3", help = "Specify number iterations of concentration parameter sampling to perform after each main Gibbs-sample iteration.", required=FALSE)
 parser$add_argument("-ch", "--chains", type='double', default="20", help = "Specify number of chains to run. Note that this is will also be fed to the number of CPUs as the number of chains must always equal the number of CPUs. Default set to 20.", required=FALSE)
 parser$add_argument("-k", "--clusters", type='double', default="16", help = "Specify number of clusters. Default set to 16.", required=FALSE)
 parser$add_argument("-ga", "--alpha", type='double', default="1", help = "Specify number of clusters. Default set to 1.", required=FALSE)
@@ -76,6 +77,9 @@ if (u.analysis.type == 'analysis') {
   }
   if (!is.null("args$posterior_iterations")) {
     u.post.space <- args$posterior_iterations
+  }
+  if (!is.null("args$concentration_parameter")) {
+    u.post.cpiter <- args$concentration_parameter
   }
   if (!is.null("args$clusters")) {
     u.clusters <- args$clusters
@@ -184,6 +188,7 @@ if (exists("hierarchy_matrix")) {
       burnin.multiplier = 1,
       post.n = 5,
       post.space = 5,
+      post.cpiter = 3,
       num.child.process = 1,
       CPU.cores = 1,
       multi.types = TRUE, 
@@ -208,7 +213,8 @@ if (exists("hierarchy_matrix")) {
     burnin               = as.integer(u.burnin),
     burnin.multiplier    = as.integer(u.burnin.multip),
     post.n               = as.integer(u.post), 
-    post.space           = as.integer(u.post.space), 
+    post.space           = as.integer(u.post.space),
+    post.cpiter          = as.integer(u.post.cpiter),
     multi.types          = TRUE, 
     overwrite            = TRUE,
     gamma.alpha          = as.integer(u.alpha), 

@@ -10,6 +10,7 @@ process mSigHdp_flat {
     val burnin_multiplier
     val posterior 
     val posterior_iterations
+    val concentration_parameter
     val chains
     val clusters
     val alpha
@@ -25,6 +26,6 @@ process mSigHdp_flat {
 
     script:
     """
-    Rscript --vanilla ${projectDir}/bin/mSigHdp_flat.R -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} -ch ${chains} -k ${clusters} -ga ${alpha} -gb ${beta} -h ${confidence} ${mutational_matrix}
+    Rscript --vanilla ${projectDir}/bin/mSigHdp_flat.R -c ${mutational_context} -a ${analysis_type} -b ${burnin_iterations} -x ${burnin_multiplier} -o ${posterior} -i ${posterior_iterations} -cp ${concentration_parameter} -ch ${chains} -k ${clusters} -ga ${alpha} -gb ${beta} -h ${confidence} ${mutational_matrix}
     """
 }

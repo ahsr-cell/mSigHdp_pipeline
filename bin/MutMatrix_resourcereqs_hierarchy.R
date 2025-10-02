@@ -45,12 +45,15 @@ mutation_matrix <- read.csv(file = mutation_matrix_path,
 
 if (ncol(mutation_matrix) == 1 ) {
   stop(sprintf("Error: Incorrect format of input mutation matrix. Please input tab delimited matrix. Stopping mSigHdp pipeline."))
+} else {
+  message("Mutation matrix ")
 }
 
 ### Check that the input mutation matrix is in SigProfilerMatrixGenerator output format
 
 if ("MutationType" %in% colnames(mutation_matrix)) {
   mutation_matrix <- tibble::column_to_rownames(mutation_matrix, "MutationType")
+  message("Mutation matrix correctly formatted. Assessing hierarchy matrix.")
 } else {
   stop(sprintf("Error: Input mutation matrix does not provide mutations under a column labelled as 'MutationType'. Please conduct the necessary data wrangling to ensure your mutation matrix is compatible with the pipeline. Stopping mSigHdp pipeline."))
 }
@@ -58,19 +61,28 @@ if ("MutationType" %in% colnames(mutation_matrix)) {
 ### Check input hierarchy table is correct format, listed hierarchy parameter is correct, and data wrangling occurs
 if (exists("hierarchy_matrix")) {
   message(paste("Hierarchy matrix provided. Incorporating into mutational matrix."))
-  hierarchy_key <- read.csv(file = hierarchy_matrix)
+  hierarchy_key <- read.csv(file = hierarchy_matrix, 
+                           header = TRUE, sep="\t")
   if (ncol(hierarchy_key) == 1 ) {
-    hierarchy_key <- read.table(hierarchy_matrix, header=T, sep = "\t")
+    stop(sprintf("Incorrect format of input hierarchy matrix. Please provide tab delimited matrix. Stopping mSigHdp pipeline."))
   }
+  if (hp %in% colnames(hierarchy_key)) {
+    hp_index <- which(hp %in% colnames(hierarchy_key))
+    message(paste0("Hierarchy parameter, ",hp ", detected in column, ",hp_index,". Hierarchy matrix correctly formatted. Assessing integration into mutation matrix."))
+} else {
+  stop(sprintf("Error: Input hierarchy parameter not found in hierarchy matrix. Please correct provided hierarchy parameter. Stopping mSigHdp pipeline."))
+}
   samples <- colnames(mutation_matrix)
   hpi <- which(colnames(hierarchy_key)==hp)
   hierarchy_key_vector <- as.vector(hierarchy_key[,hpi])
-  hierarchy_key_vector_colnames <- paste0(hierarchy_key_vector,"::",samples)
-  
+  hierarchy_key_vector_colnames <- paste0(hierarchy_key_vector,"::",samples)  
   colnames(mutation_matrix) = hierarchy_key_vector_colnames
+  message(paste0("Hierarchy parameter successfully integrated into mutation matrix. Proceeding with pipeline."))
 } else {
   message(paste("No hierarchy matrix provided, please note that mSigHdp will run assuming no hierarchy."))
 }
+
+message(paste0("Calculating memory requirements."))
 
 ### Count number of samples
 #Samples will be by row
@@ -127,3 +139,5 @@ memory_requirements_df <- data.frame(
 ### Export dataframe as CSV, saving into directory
 write.table(memory_requirements_df, file = paste0(u.work.dir,"/memory_requirements.csv"), sep = ",",
                 quote = FALSE, row.names = FALSE, col.names = TRUE)
+
+message(paste0("Memory requirements successfully calculated. Proceeding with mSigHdp pipeline."))

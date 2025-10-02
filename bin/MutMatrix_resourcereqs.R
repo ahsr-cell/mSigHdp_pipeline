@@ -41,9 +41,12 @@ if (ncol(mutation_matrix) == 1 ) {
 
 if ("MutationType" %in% colnames(mutation_matrix)) {
   mutation_matrix <- tibble::column_to_rownames(mutation_matrix, "MutationType")
+  message("Mutation matrix correctly formatted. Proceeding with pipeline.")
 } else {
   stop(sprintf("Error: Input mutation matrix does not provide mutations under a column labelled as 'MutationType'. Please conduct the necessary data wrangling to ensure your mutation matrix is compatible with the pipeline. Stopping mSigHdp pipeline."))
 }
+
+message(paste0("Calculating memory requirements."))
 
 ### Count number of samples
 #Samples will be by row
@@ -100,3 +103,5 @@ memory_requirements_df <- data.frame(
 ### Export dataframe as CSV, saving into directory
 write.table(memory_requirements_df, file = paste0(u.work.dir,"/memory_requirements.csv"), sep = ",",
                 quote = FALSE, row.names = FALSE, col.names = TRUE)
+
+message(paste0("Memory requirements successfully calculated. Proceeding with mSigHdp pipeline."))
