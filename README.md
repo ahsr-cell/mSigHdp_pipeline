@@ -66,20 +66,7 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
      -profile <docker/singularity/.../institute> \
      -c /path/to/config_file \
      --mutational_matrix /path/to/mutation_matrix.tsv \
-     --hierarchy <true/false> \
-     --hierarchy_matrix /path/to/hierarchy_key.tsv \
-     --hierarchy_parameter <variable_used_for_hierarchy_as_the_column-name_in_hierarchy_key> \
-     --mutational_context <SBS96/SBS288/DBS78/ID83> \
-     --analysis_type <analysis/testing> \
-     --outdir /path/to/outdir/ \
-     --plotting <true/false> \
-     --decompose <true/false> 
-
-nextflow run /path/to/mSigHdp_pipeline/main.nf \
-     -profile <docker/singularity/.../institute> \
-     -c /path/to/config_file \
-     --mutational_matrix /path/to/mutation_matrix.tsv \
-     --mutational_context <SBS96/SBS288/DBS78/ID83> \
+     --mutational_context <SBS96/SBS288/SBS1536/DBS78/ID83> \
      --analysis_type <analysis/testing> \
      --burnin_iterations <desired_number_of_burnin_iterations> \
      --burnin_multiplier <desired_burnin_multiplier> \
@@ -116,7 +103,7 @@ Sangers can run the pipeline using the following wrapper script:
 # Run inputs and options, change accordingly
 mutational_matrix=/path/to/mutation_matrix.tsv
 
-mutational_context=SBS96 #options include SBS96, SBS288, DBS78, ID83 
+mutational_context=SBS96 #options include SBS96, SBS288, SBS1536, DBS78, ID83 
 analysis_type=analysis #options include testing/analysis
 outdir=/path/to/desired/output_directory #set to location of output files
 plotting=true #set to false if just signature extraction
