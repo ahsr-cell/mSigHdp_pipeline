@@ -69,7 +69,7 @@ Clone this repository via
 | `beta`[^*] [^**]   | Optional value, provided as a double. Used to change gamma.beta, the inverse scale (rate) parameter of the gamma distribution prior. Default is `20`         |
 | `confidence`[^*]   | Optional value, provided as a double. Used to change `high.confidence.prop`, threshold to determine signatures with high confidence. Default is `0.9`         |
 [^*]: mSigHdp run options that can be changed in analysis runs. Recommended to change only after conducting an initial analysis run with default settings and having validated reasonable cause for changing number of iterations.
-[^**]: 20 recommended for SBS signature extraction, while 50 is recommended for DBS and ID signature extraction. 
+[^**]: 20 recommended for SBS signature extraction, while 50 is recommended for DBS and ID signature extraction. See [mSigHdp manual](https://github.com/steverozen/mSigHdp/blob/v2.1.2-branch/mSigHdp_2.1.2.pdf) 
 
 The pipeline can be run using:
 
