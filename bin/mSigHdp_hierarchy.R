@@ -35,9 +35,9 @@ parser$add_argument("-i", "--posterior_iterations", type = 'double', default = "
 parser$add_argument("-cp", "--concentration_parameter", type = 'double', default = "3", help = "Specify number iterations of concentration parameter sampling to perform after each main Gibbs-sample iteration.", required=FALSE)
 parser$add_argument("-ch", "--chains", type='double', default="20", help = "Specify number of chains to run. Note that this is will also be fed to the number of CPUs as the number of chains must always equal the number of CPUs. Default set to 20.", required=FALSE)
 parser$add_argument("-k", "--clusters", type='double', default="16", help = "Specify number of clusters. Default set to 16.", required=FALSE)
-parser$add_argument("-ga", "--alpha", type='double', default="1", help = "Specify number of clusters. Default set to 1.", required=FALSE)
-parser$add_argument("-gb", "--beta", type='double', default="20", help = "Specify number of clusters. Default set to 20.", required=FALSE)
-parser$add_argument("-h", "--confidence", type='double', default="0.9", help = "Specify number of clusters. Default set to 0.9.", required=FALSE)
+parser$add_argument("-ga", "--alpha", type='double', default="1", help = "Specify gamma.alpha value, the shape parameter of the gamma distribution prior. Default set to 1.", required=FALSE)
+parser$add_argument("-gb", "--beta", type='double', default="20", help = "Specify gamma.beta value, the inverse scale(rate) parameter of the gamma distribution prior. Default set to 20. Use 20 for SBS extraction, 50 for DBS and ID extraction.", required=FALSE)
+parser$add_argument("-cf", "--confidence", type='double', default="0.9", help = "Specify threshold value to determine signatures with high confidence Default set to 0.9.", required=FALSE)
 
 #Parse arguments
 args <- parser$parse_args()
