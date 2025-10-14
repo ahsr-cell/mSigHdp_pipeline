@@ -67,13 +67,12 @@ if (exists("hierarchy_matrix")) {
     stop(sprintf("Incorrect format of input hierarchy matrix. Please provide tab delimited matrix. Stopping mSigHdp pipeline."))
   }
   if (hp %in% colnames(hierarchy_key)) {
-    hp_index <- which(hp %in% colnames(hierarchy_key))
-    message(paste0("Hierarchy parameter, ",hp ", detected in column, ",hp_index,". Hierarchy matrix correctly formatted. Assessing integration into mutation matrix."))
+    hpi <- which(colnames(hierarchy_key)==hp)
+    message(paste0("Hierarchy parameter ", hp, " detected in column ", hpi,". Hierarchy matrix correctly formatted. Assessing integration into mutation matrix."))
 } else {
   stop(sprintf("Error: Input hierarchy parameter not found in hierarchy matrix. Please correct provided hierarchy parameter. Stopping mSigHdp pipeline."))
 }
   samples <- colnames(mutation_matrix)
-  hpi <- which(colnames(hierarchy_key)==hp)
   hierarchy_key_vector <- as.vector(hierarchy_key[,hpi])
   hierarchy_key_vector_colnames <- paste0(hierarchy_key_vector,"::",samples)  
   colnames(mutation_matrix) = hierarchy_key_vector_colnames
