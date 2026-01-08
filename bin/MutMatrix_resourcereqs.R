@@ -14,18 +14,20 @@ options(stringsAsFactors = F )
 # Create parser
 parser = ArgumentParser(prog = 'Input matrix matrix check and mSigHdp memory requirements generation', description = 'Mutation matrix validation and memory requirements generation.')
 #Command line arguments
-parser$add_argument("matrix_path", nargs = 1, help = "Specify path to input mutational matrix.") 
-
+parser$add_argument("mutation_matrix_path", nargs = 1, help = "Specify path to input mutational matrix.") 
+parser$add_argument("-umem","--user_defmemory", type = 'double', help = "If known and optimised, specify memory required for mSigHdp run.", required=FALSE)
 #Parse arguments
 args <- parser$parse_args()
 
 mutation_matrix_path <- args$matrix_path
 
-if(!exists("mutation_matrix_path")) {
+if(is.null(mutation_matrix_path)) {
   stop(sprintf("Mutation matrix not provided. Please specify by providing path at end of command; Use -h for further information."))
 }
 
-message("Importing user datasets and conducting necessary data wrangling.")
+u_mem <- args$user_defmemory
+
+message("Importing user datasets and validating required formatting.")
 
 ### Data wrangling
 ##Mutation matrix 
@@ -46,37 +48,46 @@ if ("MutationType" %in% colnames(mutation_matrix)) {
   stop(sprintf("Error: Input mutation matrix does not provide mutations under a column labelled as 'MutationType'. Please conduct the necessary data wrangling to ensure your mutation matrix is compatible with the pipeline. Stopping mSigHdp pipeline."))
 }
 
-message(paste0("Calculating memory requirements."))
+if (is.null(u_mem) | (u_mem == 0)) {
+  message(paste0("Calculating memory requirements according to input mutation matrix."))
 
-### Count number of samples
-#Samples will be by row
-#calculate number of rows 
-sample_number <- (ncol(mutation_matrix))
-message(paste0("Input mutation matrix has ", sample_number," samples. \n"))
+  ### Count number of samples
+  #Samples will be by row
+  #calculate number of rows 
+  sample_number <- ncol(mutation_matrix)
+  message(paste0("Input mutation matrix has ", sample_number," samples. \n"))
 
-### Identify mutation burden
-#calculate row sums
-#sum row sums
-#divide by number of rows
-mutation_burden <- mean(colSums(mutation_matrix))
-message(paste0("Calculated mutation burden: ", round(mutation_burden, digits = 2),". \n"))
+  ### Identify mutation burden
+  #calculate row sums
+  #sum row sums
+  #divide by number of rows
+  mutation_burden <- mean(colSums(mutation_matrix))
+  message(paste0("Calculated mutation burden: ", round(mutation_burden, digits = 2),". \n"))
 
-### Input into linear equations
-mutation_threshold <- 10000
+  ### Input into linear equations
+  mutation_threshold <- 10000
 
-if (mutation_burden > mutation_threshold) {
-  message(paste0("Based on mutation burden of ", round(mutation_burden, digits = 2),", input sample detected to be tumour. Calculating memory requirements based on tumour samples. \n"))
-  a1 <- 0.023
-  b1 <- 0.6136
-  memory_required <- (a1 + b1 * sample_number)*1.10
-  message(paste0("Required memory for mSigHdp run calculated to be ", round(memory_required, digits = 2)," GB, including 10% leeway. \n"))
-} else {
-  message(paste0("Based on mutation burden of ", round(mutation_burden, digits = 2),", input sample detected to be normal. Calculating memory requirements based on normal samples. \n"))
-  a1 <- 6.27
-  b1 <- 0.0832
-  memory_required <- (a1 + b1 * sample_number)*1.10
-  message(paste0("Required memory for mSigHdp run calculated to be ", round(memory_required, digits = 2)," GB, including 10% leeway. \n"))
+  if (mutation_burden > mutation_threshold) {
+    message(paste0("Based on mutation burden of ", round(mutation_burden, digits = 2),", input sample detected to be tumour. Calculating memory requirements based on tumour samples. \n"))
+    a1 <- 0.023
+    b1 <- 0.6136
+    memory_required <- (a1 + b1 * sample_number)*1.10
+    message(paste0("Required memory for mSigHdp run calculated to be ", round(memory_required, digits = 2)," GB, including 10% leeway. \n"))
+  } else {
+    message(paste0("Based on mutation burden of ", round(mutation_burden, digits = 2),", input sample detected to be normal. Calculating memory requirements based on normal samples. \n"))
+    a1 <- 6.27
+    b1 <- 0.0832
+    memory_required <- (a1 + b1 * sample_number)*1.10
+    message(paste0("Required memory for mSigHdp run calculated to be ", round(memory_required, digits = 2)," GB, including 10% leeway. \n"))
+  }
+} else if (!is.null(u_mem) | (u_mem != 0)) {
+  sample_number <- ncol(mutation_matrix)
+  mutation_burden <- mean(colSums(mutation_matrix))
+
+  message(paste0("Memory requirements for mSigHdp run detected. Bypassing calculations and using user inputs for resource requirements"))
+  memory_required <- u_mem
 }
+
 ### Make output directory
 message(paste0("Creating output directory for memory requirements"))  
 main_dir <- getwd()
