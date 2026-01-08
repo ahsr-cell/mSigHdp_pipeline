@@ -41,7 +41,7 @@ Setting `decompose` to `false` will turn this functionality off.
 
 ## Installation
 Clone this repository via
- > git clone git@github.com:ahsr-cell/HDP_pipeline.git
+ > git clone git@github.com:ahsr-cell/mSigHdp_pipeline.git
 
 ## Usage
 
