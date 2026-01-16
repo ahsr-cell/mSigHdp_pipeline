@@ -19,7 +19,7 @@ parser$add_argument("-umem","--user_defmemory", type = 'double', help = "If know
 #Parse arguments
 args <- parser$parse_args()
 
-mutation_matrix_path <- args$matrix_path
+mutation_matrix_path <- args$mutation_matrix_path
 
 if(is.null(mutation_matrix_path)) {
   stop(sprintf("Mutation matrix not provided. Please specify by providing path at end of command; Use -h for further information."))
