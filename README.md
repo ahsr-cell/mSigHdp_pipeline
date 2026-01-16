@@ -71,7 +71,7 @@ Clone this repository via
 [^*]: mSigHdp run options that can be changed in analysis runs. Recommended to change only after conducting an initial analysis run with default settings and having validated reasonable cause for changing number of iterations.
 [^**]: 20 recommended for SBS signature extraction, while 50 is recommended for DBS and ID signature extraction. See [mSigHdp manual](https://github.com/steverozen/mSigHdp/blob/v2.1.2-branch/mSigHdp_2.1.2.pdf) 
 
-The pipeline can be run using:
+The pipeline can be run using (removing unused pipeline options):
 
 ```
 nextflow run /path/to/mSigHdp_pipeline/main.nf \
@@ -109,7 +109,7 @@ Sangers can run the pipeline using the following wrapper script:
 #BSUB -u USER@sanger.ac.uk
 #BSUB -q week #set according time requirements for largest local running job
 #BSUB -n 1 #Single CPU node used for pipeline task submitter
-#BSUB -M5000 #set according memory requirements for for largest local running job
+#BSUB -M5000 
 #BSUB -R "select[mem>5000] rusage[mem=5000]" #set according to sample type and memory requirements
 
 # Run inputs and options, change accordingly
