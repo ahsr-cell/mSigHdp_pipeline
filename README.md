@@ -2,12 +2,16 @@
 
 ![mSigHdp pipeline overview](/assets/images/mSigHdp_overview.png)
 
-**mSigHdp pipeline** is a bioinformatics pipeline for standardised mutational signature extraction using [mSigHdp](https://github.com/steverozen/mSigHdp).
+**mSigHdp pipeline** is a bioinformatics pipeline for standardised mutational signature extraction using [mSigHdp](https://github.com/steverozen/mSigHdp). This pipeline was developed in conjunction with the [HDP pipeline](https://github.com/ahsr-cell/HDP_pipeline), another mutation signature extraction pipeline that may be of interests to users. 
 
-There are three main processes of the pipeline: mSigHdp, SigProfilerPlotting, and SigProfilerAssignment. 
+There are four main processes of the pipeline: Validation, mSigHdp, SigProfilerPlotting, and SigProfilerAssignment. 
 
-The pipeline executes all three processes (by default). mSigHdp runs first, and the results it generates (i.e., a matrix containing the *de novo* signatures) are subsequently fed to [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting) for signature spectra plotting and [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment) for a preliminary decomposition. Depending on user needs, SigProfilerPlotting and SigProfilerAssignment can be turned off. The pipeline is designed to be compatible with the following mutation type classifications: SBS96, SBS288, SBS1536, DBS78, ID83. 
+The pipeline executes all four processes (by default). Validation runs first, followed by mSigHdp. The results of mSigHdp (i.e., a matrix containing the *de novo* signatures) are subsequently fed to [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting) for signature spectra plotting and [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment) for a preliminary decomposition. Validation and mSigHdp will always run, but depending on user needs, SigProfilerPlotting and SigProfilerAssignment can be turned off. TThe pipeline is designed to be compatible with the following mutation type classifications: SBS96, SBS288, SBS1536, DBS78, ID83.
 
+### Validation
+The validation step of the pipeline serves two purposes. First, it checks the input matrices' format(s), (e.g., for the input mutational matrix, is it in the standardised SigProfiler format: mutation types as rows, samples as columns). If they are not in the required format, the pipeline will stop and print out (in error logs), which input is incorrectly formatted. See [Inputs](https://github.com/ahsr-cell/mSigHdp_pipeline?tab=readme-ov-file#inputs) for more information on required formatting.
+
+Second, the pipeline provides functionality to automatically calculate resource requirements for the mSigHdp run. mSigHdp memory and runtime requirements scale with sample number and maximum mutation burden. Within the mSigHdp pipeline, linear mixed-effects models are used to approximate memory requirements, accounting for sample number and mutation burden. The pipeline take the inputted mutation matrix, calculate these two metrics, use the linear mixed-effect model to calculate the memory requirements in GB, and finally pass this value for the mSigHdp run. It is important to note that the modelling was developed assuming 20 chains will be used. Users can opt out of the automatic memory calculation and provide their own memory by providing a value to `user_defmemory`. 
 
 ### mSigHdp
 mSigHdp uses hierarchical Dirichlet processes to identify mutational signatures present within samples. 
@@ -39,6 +43,13 @@ Setting `decompose` to `false` will turn this functionality off.
 * Python, required packages: [SigProfilerPlotting](https://github.com/AlexandrovLab/SigProfilerPlotting), [SigProfilerAssignment](https://github.com/AlexandrovLab/SigProfilerAssignment), [argparse](https://docs.python.org/3/library/argparse.html)
 * R, required packages: [mSigHdp](https://github.com/steverozen/mSigHdp), [hdpx](https://github.com/steverozen/hdpx), [tidyverse](https://www.tidyverse.org/), [argparse](https://cran.r-project.org/web/packages/argparse/index.html)
 
+### Docker Images
+The following Docker images have been created to facilitate the running of the HDP pipeline and are available from DockerHub. The Docker files used to create them are available under [docker_files](https://github.com/ahsr-cell/mSigHdp_pipeline/tree/main/docker_files). 
+
+* HDP: ar39944/msighdp_amd64:0.0.2
+* SigProfilerPlotting: ar39944/sigprofilerplotting_amd64:0.0.1
+* SigProfilerAssignment ar39944/sigprofilerassignment_amd64:0.0.2
+
 ## Installation
 Clone this repository via
  > git clone git@github.com:ahsr-cell/mSigHdp_pipeline.git
@@ -58,6 +69,7 @@ Clone this repository via
 | `plotting`   | Required value, provided as a string. Options are `true` or `false`, default is `true`         |
 | `decompose`   | Required value, provided as a string. Options are `true` or `false`, default is `true`         |
 | `outdir`   | Required path, specifying the location of output files generated by pipeline. See [`output.md`](docs/output.md) for the files/directories that will be contained within this directory.        |
+| `user_defmemory`   | Optional value that can be provided if a user would like to specify the amount of memory to request for the mSigHdp run. Note, by default, the pipeline will calculate the amount of memory required, based on the number of samples and highest mutation burden. By providing a value to `user_defmemory`, this process will be turned off.        |
 | `burnin_iterations`[^*]   | Optional value, provided as a double. Used to change number of burn-in iterations conducted. Default is `5000`          |
 | `burnin_multiplier`[^*]   | Optional value, provided as a double. Used to change multiplier of burn-in iterations conducted. Default is `10`         |
 | `posterior`[^*]   | Optional value, provided as a double. Used to change number of posterior samples. Default is `250`         |
@@ -91,6 +103,7 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
      --confidence <desired_confidence_threshold> \
      --outdir /path/to/outdir/ \
      --plotting <true/false> \
+     --user_defmemory <desired_memory_inGB> \
      --decompose <true/false> \
      --hierarchy <true/false> \
      --hierarchy_matrix /path/to/hierarchy_key.tsv \
@@ -119,6 +132,7 @@ mutational_context=SBS96 #options include SBS96, SBS288, SBS1536, DBS78, ID83
 analysis_type=analysis #options include testing/analysis
 outdir=/path/to/desired/output_directory #set to location of output files
 plotting=true #set to false if just signature extraction
+user_defmemory=0 #Memory resources to request. Set if known, if not, leave as 0 for automatic calculation. Units are in Gigabytes
 decompose=true #set to false if just signature extraction
 
 hierarchy=false #if running hierarchy, set to true
@@ -161,6 +175,7 @@ nextflow run ${main_script} \
      --confidence ${confidence} \
      --outdir ${outdir} \
      --plotting ${plotting} \
+     --user_defmemory ${user_defmemory}
      --decompose ${decompose} \
      --hierarchy ${hierarchy} \
      --hierarchy_matrix ${hierarchy_matrix} \
