@@ -46,7 +46,7 @@ Setting `decompose` to `false` will turn this functionality off.
 ### Docker Images
 The following Docker images have been created to facilitate the running of the HDP pipeline and are available from DockerHub. The Docker files used to create them are available under [docker_files](https://github.com/ahsr-cell/mSigHdp_pipeline/tree/main/docker_files). 
 
-* HDP: ar39944/msighdp_amd64:0.0.2
+* mSigHdp: ar39944/msighdp_amd64:0.0.2
 * SigProfilerPlotting: ar39944/sigprofilerplotting_amd64:0.0.1
 * SigProfilerAssignment ar39944/sigprofilerassignment_amd64:0.0.2
 
