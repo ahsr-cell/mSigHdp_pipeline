@@ -96,6 +96,7 @@ nextflow run /path/to/mSigHdp_pipeline/main.nf \
      --burnin_multiplier <desired_burnin_multiplier> \
      --posterior <desired_number_of_posterior_samples> \
      --posterior_iterations <desired_number_of_posterior_iterations> \
+     --concentration_parameter <desired_concentration_parameter> \
      --chains <desired_number_of_posterior_sampling_chains> \
      --clusters <desired_number_of_initial_HDP_clusters> \
      --alpha <desired_gamma.alpha_value> \
@@ -168,6 +169,7 @@ nextflow run ${main_script} \
      --burnin_multiplier ${burnin_multiplier} \
      --posterior ${posterior} \
      --posterior_iterations ${posterior_iterations} \
+     --concentration_parameter ${concentration_parameter} \
      --chains ${chains} \
      --clusters ${clusters} \
      --alpha ${alpha} \
