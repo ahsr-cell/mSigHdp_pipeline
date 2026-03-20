@@ -48,7 +48,7 @@ The following Docker images have been created to facilitate the running of the H
 
 * mSigHdp: ar39944/msighdp_amd64:0.0.2
 * SigProfilerPlotting: ar39944/sigprofilerplotting_amd64:0.0.1
-* SigProfilerAssignment ar39944/sigprofilerassignment_amd64:0.0.2
+* SigProfilerAssignment ar39944/sigprofilerassignment_amd64:0.0.3
 
 ## Installation
 Clone this repository via
