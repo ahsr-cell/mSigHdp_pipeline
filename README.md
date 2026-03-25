@@ -177,7 +177,7 @@ nextflow run ${main_script} \
      --confidence ${confidence} \
      --outdir ${outdir} \
      --plotting ${plotting} \
-     --user_defmemory ${user_defmemory}
+     --user_defmemory ${user_defmemory} \
      --decompose ${decompose} \
      --hierarchy ${hierarchy} \
      --hierarchy_matrix ${hierarchy_matrix} \
